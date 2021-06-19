@@ -7,6 +7,10 @@ import javax.persistence.ManyToOne;
 
 @Embeddable
 public class OrderDetailId implements Serializable {
+	
+	/**
+	 * Aquí generamos la Id compuesta conformada por pro_Code y order_number
+	 */
 		
 	private static final long serialVersionUID = 1L;
 	
