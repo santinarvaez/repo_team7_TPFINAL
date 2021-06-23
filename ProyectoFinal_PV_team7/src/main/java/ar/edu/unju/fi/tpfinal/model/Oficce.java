@@ -2,12 +2,9 @@ package ar.edu.unju.fi.tpfinal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-
 import org.springframework.stereotype.Component;
 
 @Table(name = "OFICCES")
@@ -16,9 +13,8 @@ import org.springframework.stereotype.Component;
 public class Oficce {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "of_code")
-	private String officeCode;
+	private Integer officeCode;
 	
 	@NotEmpty(message = "Ingrese un nombre de ciudad")
 	@Column(name = "of_city")
@@ -47,13 +43,13 @@ public class Oficce {
 	@Column(name = "of_territory")
 	private String territory;
 	
+
 	//CONSTRUCTORES
 	
 	public Oficce() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Oficce(String officeCode, @NotEmpty(message = "Ingrese un nombre de ciudad") String city,
+	public Oficce(Integer officeCode, @NotEmpty(message = "Ingrese un nombre de ciudad") String city,
 			@NotEmpty(message = "Ingrese un telefono") String phone,
 			@NotEmpty(message = "Ingrese una dirección válida") String addressline1, String addressline2, String state,
 			String country, String postalCode, String territory) {
@@ -73,11 +69,11 @@ public class Oficce {
 
 	//GETTERS & SETTERS 
 
-	public String getOfficeCode() {
+	public Integer getOfficeCode() {
 		return officeCode;
 	}
 
-	public void setOfficeCode(String officeCode) {
+	public void setOfficeCode(Integer officeCode) {
 		this.officeCode = officeCode;
 	}
 

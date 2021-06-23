@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.tpfinal.model;
 
-import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +29,7 @@ public class Product {
 		
 		@NotNull
 		@Column(name="pro_scale")
-		private LocalDate productScale;
+		private String productScale;
 		
 		@NotEmpty(message = "Ingrese la empresa proveedora del producto")
 		@Column(name="pro_vendor")
@@ -56,6 +55,8 @@ public class Product {
 		@JoinColumn(name="productLine")
 		private ProductLine productLine;
 		
+		
+		
 		//CONSTRUCTORES
 		
 		public Product() {
@@ -64,7 +65,7 @@ public class Product {
 		
 		
 		public Product(String productCode, @NotEmpty(message = "Introduzca un nombre de producto") String productName,
-				@NotNull LocalDate productScale,
+				@NotNull String productScale,
 				@NotEmpty(message = "Ingrese la empresa proveedora del producto") String productVend,
 				@NotEmpty(message = "Ingrese una descripción") String description,
 				@NotNull(message = "Ingrese stock del producto") int stock, @NotNull float buyPrice, float mSRP,
@@ -101,11 +102,11 @@ public class Product {
 			this.productName = productName;
 		}
 
-		public LocalDate getProductScale() {
+		public String getProductScale() {
 			return productScale;
 		}
 
-		public void setProductScale(LocalDate productScale) {
+		public void setProductScale(String productScale) {
 			this.productScale = productScale;
 		}
 
