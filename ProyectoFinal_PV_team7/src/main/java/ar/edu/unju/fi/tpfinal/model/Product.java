@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,21 +24,27 @@ public class Product {
 		@Column(name="pro_code")
 		private String productCode;
 		
+		@NotEmpty(message = "Introduzca un nombre de producto")
 		@Column(name="pro_name")
 		private String productName;
 		
+		@NotNull
 		@Column(name="pro_scale")
 		private LocalDate productScale;
 		
+		@NotEmpty(message = "Ingrese la empresa proveedora del producto")
 		@Column(name="pro_vendor")
 		private String productVend;
 		
-		@Column(name="pro_des")
+		@NotEmpty(message = "Ingrese una descripción")
+		@Column(name="pro_des",length = 9000)
 		private String description;
 		
+		@NotNull(message = "Ingrese stock del producto")
 		@Column(name="pro_stock")
 		private int stock;
 		
+		@NotNull
 		@Column(name="pro_price")
 		private float buyPrice;
 		
@@ -48,13 +56,34 @@ public class Product {
 		@JoinColumn(name="productLine")
 		private ProductLine productLine;
 		
-		/*@OneToMany
-		@OneToMany(mappedBy = "id.")
-		private List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();*/
+		//CONSTRUCTORES
 		
 		public Product() {
 			// TODO Auto-generated constructor stub
 		}
+		
+		
+		public Product(String productCode, @NotEmpty(message = "Introduzca un nombre de producto") String productName,
+				@NotNull LocalDate productScale,
+				@NotEmpty(message = "Ingrese la empresa proveedora del producto") String productVend,
+				@NotEmpty(message = "Ingrese una descripción") String description,
+				@NotNull(message = "Ingrese stock del producto") int stock, @NotNull float buyPrice, float mSRP,
+				ProductLine productLine) {
+			super();
+			this.productCode = productCode;
+			this.productName = productName;
+			this.productScale = productScale;
+			this.productVend = productVend;
+			this.description = description;
+			this.stock = stock;
+			this.buyPrice = buyPrice;
+			MSRP = mSRP;
+			this.productLine = productLine;
+		}
+
+
+
+		//GETTERS & SETTERS
 
 		public String getProductCode() {
 			return productCode;

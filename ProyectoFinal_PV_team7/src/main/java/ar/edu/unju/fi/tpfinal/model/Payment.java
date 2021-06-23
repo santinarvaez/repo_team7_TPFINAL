@@ -6,7 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,9 +19,12 @@ public class Payment {
 	@EmbeddedId
 	private PaymentId id;
 	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "pay_payDate")
 	private LocalDate paymentDate;
 	
+	@NotNull
 	@Column(name = "pay_amount") 
 	private Double amount;
 	
@@ -27,6 +32,13 @@ public class Payment {
 	
 	public Payment() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Payment(PaymentId id, @NotNull LocalDate paymentDate, @NotNull Double amount) {
+		super();
+		this.id = id;
+		this.paymentDate = paymentDate;
+		this.amount = amount;
 	}
 	
 	//GETTERS & SETTERS
