@@ -1,40 +1,50 @@
 package ar.edu.unju.fi.tpfinal.serviceImp;
 
 import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tpfinal.model.ProductLine;
+import ar.edu.unju.fi.tpfinal.repository.IProductLineRepository;
 import ar.edu.unju.fi.tpfinal.service.IProductLineService;
 
+@Service("productLineMysql")
 public class ProductLineServiceMySqlImp implements IProductLineService {
 
+	@Autowired
+	private ProductLine productLine;
+	
+	@Autowired
+	private IProductLineRepository productLineRepository;
+	
+	
+	
 	@Override
 	public void addProductLine(ProductLine productLine) {
-		// TODO Auto-generated method stub
-		
+		productLineRepository.save(productLine);
 	}
 
 	@Override
 	public ProductLine getProductLine() {
-		// TODO Auto-generated method stub
-		return null;
+		return productLine;
 	}
 
 	@Override
 	public List<ProductLine> getAllProductLines() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProductLine> productLines = (List<ProductLine>) productLineRepository.findAll();
+		return productLines;
 	}
 
 	@Override
-	public ProductLine getProductLineForId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<ProductLine> getProductLineForId(String id) {
+		Optional <ProductLine> productLine = productLineRepository.findById(id);
+		return productLine;
 	}
 
 	@Override
 	public void eliminarProductLine(String id) {
-		// TODO Auto-generated method stub
-		
+		productLineRepository.deleteById(id);
 	}
 
 }
