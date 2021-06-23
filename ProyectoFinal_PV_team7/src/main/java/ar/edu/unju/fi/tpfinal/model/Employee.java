@@ -54,7 +54,7 @@ public class Employee {
 	private String jobTitle;
 	
 	/**
-	 * Relación con de supervisor con un empleado.
+	 * Relación de supervisor con uno o más empleados.
 	 */
 	
 	@Autowired
