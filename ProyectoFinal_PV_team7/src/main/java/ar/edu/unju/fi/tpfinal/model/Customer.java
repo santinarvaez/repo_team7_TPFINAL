@@ -3,10 +3,14 @@ package ar.edu.unju.fi.tpfinal.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,28 +20,35 @@ import org.springframework.stereotype.Component;
 @Component
 public class Customer {
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "cu_Number")
 	private Long customerNumber;
 	
+	@NotEmpty(message = "Ingrese un nombre de empresa")
 	@Column(name = "cu_Name")
 	private String customerName;
 	
+	@NotEmpty(message = "Ingrese un apellido")
 	@Column(name = "cu_lstName")
 	private String customerLastName;
 	
+	@NotEmpty(message = "Ingrese un nombre")
 	@Column(name = "cu_fstName")
 	private String customerFirstName;
 	
-	@Column(name = "cu_phone")
+	@NotNull
+	@Column(name = "cu_phone", length = 60)
 	private String phone;
 	
+	@NotEmpty(message = "Ingrese una direccion")
 	@Column(name = "cu_address1")
 	private String address1;
 	
 	@Column(name = "cu_address2")
 	private String address2;
 	
+	@NotEmpty(message = "Ingrese una ciudad válida")
 	@Column(name = "cu_city")
 	private String city;
 	
@@ -47,6 +58,8 @@ public class Customer {
 	@Column(name = "cu_postalCode")
 	private String postalCode;
 	
+	
+	@NotEmpty(message = "Ingrese un país válida")
 	@Column(name = "cu_country")
 	private String country;
 	
@@ -64,10 +77,13 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Customer(Long customerNumber, String customerName, String customerLastName, String customerFirstName,
-			String phone, String address1, String address2, String city, String state, String postalCode,
-			String country, Double creditLimit) {
+	public Customer(Long customerNumber, @NotEmpty(message = "Ingrese un nombre de empresa") String customerName,
+			@NotEmpty(message = "Ingrese un apellido") String customerLastName,
+			@NotEmpty(message = "Ingrese un nombre") String customerFirstName, @NotNull String phone,
+			@NotEmpty(message = "Ingrese una direccion") String address1, String address2,
+			@NotEmpty(message = "Ingrese una ciudad válida") String city, String state, String postalCode,
+			@NotEmpty(message = "Ingrese un país válida") String country, Employee salesRepEmployeeNumber,
+			Double creditLimit) {
 		super();
 		this.customerNumber = customerNumber;
 		this.customerName = customerName;
@@ -80,9 +96,9 @@ public class Customer {
 		this.state = state;
 		this.postalCode = postalCode;
 		this.country = country;
+		this.salesRepEmployeeNumber = salesRepEmployeeNumber;
 		this.creditLimit = creditLimit;
 	}
-
 
 	//GETTERS AND SETTERS
 

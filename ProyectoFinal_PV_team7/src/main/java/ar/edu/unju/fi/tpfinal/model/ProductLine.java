@@ -5,8 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,27 +18,33 @@ import org.springframework.stereotype.Component;
 public class ProductLine {
 
 	@Id
+	@NotEmpty
 	@Column(name = "productLine", length = 50)
 	private String id;
 	
+	@NotEmpty(message = "Ingrese una descripción")
 	@Column(name = "textDescription", length = 4000)
 	private String textDescription;
 	
 	@Column(name = "htmlDescription")
 	private String htmlDescription;
 	
+	@Lob
 	@Column(name = "img", length=100000)
 	private byte[] imagen;
 	
 	@OneToMany(mappedBy = "productLine")
 	private List<Product> productos = new ArrayList<Product>();
 	
+	//CONSTRUCTORES
+	
 	public ProductLine() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public ProductLine(String id, String textDescription, String htmlDescription, byte[] imagen,
-			List<Product> productos) {
+	
+	
+	public ProductLine(@NotEmpty String id, @NotEmpty(message = "Ingrese una descripción") String textDescription,
+			String htmlDescription, byte[] imagen, List<Product> productos) {
 		super();
 		this.id = id;
 		this.textDescription = textDescription;
@@ -44,6 +53,9 @@ public class ProductLine {
 		this.productos = productos;
 	}
 
+
+	//GETTERS & SETTERS
+	
 	public String getId() {
 		return id;
 	}

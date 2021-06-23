@@ -6,10 +6,15 @@ import javax.persistence.OneToMany;*/
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,18 +24,23 @@ import org.springframework.stereotype.Component;
 public class Employee {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "em_number")
 	private Integer employeeNumber;
 	
+	@NotEmpty(message = "Ingrese un nombre")
 	@Column(name = "em_lastname")
 	private String lastName;
 	
+	@NotEmpty(message = "Ingrese un nombre")
 	@Column(name = "em_firstname")
 	private String firstName;
 	
+	@NotNull(message = "Este campo no puede estar vacio")
 	@Column(name = "em_extension")
 	private String extension;
 	
+	@NotNull
 	@Column(name = "em_email")
 	private String email;
 	
@@ -39,6 +49,7 @@ public class Employee {
 	@JoinColumn(name = "of_code")
 	private Oficce officeCode;
 	
+	@NotNull
 	@Column(name = "em_jobtitle")
 	private String jobTitle;
 	
@@ -55,6 +66,21 @@ public class Employee {
 	
 	public Employee() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(Integer employeeNumber, @NotEmpty(message = "Ingrese un nombre") String lastName,
+			@NotEmpty(message = "Ingrese un nombre") String firstName,
+			@NotNull(message = "Este campo no puede estar vacio") String extension, @NotNull String email,
+			Oficce officeCode, @NotNull String jobTitle, Employee reportsTo) {
+		super();
+		this.employeeNumber = employeeNumber;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.extension = extension;
+		this.email = email;
+		this.officeCode = officeCode;
+		this.jobTitle = jobTitle;
+		this.reportsTo = reportsTo;
 	}
 
 	//GETTERS & SETTERS
