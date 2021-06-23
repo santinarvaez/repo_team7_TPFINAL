@@ -44,6 +44,10 @@ public class Employee {
 	@Column(name = "em_email")
 	private String email;
 	
+	/**
+	 * Relacion con oficinas
+	 */
+	
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "of_code")
