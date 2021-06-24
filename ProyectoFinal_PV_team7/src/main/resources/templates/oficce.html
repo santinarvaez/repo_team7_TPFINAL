@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Index Classic Model</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
+	</head>	
+<body>
+<div class="container">
+	<header th:replace="layout/header :: header"></header>
+	
+			<div class="titulo01 text-center text-white">
+<h1>OFICCE</h1>
+	  			</div>
+				 <div class="table-responsive">
+							<table class="table table-striped table-dark">
+								<tr>
+									<th> Id  </th>
+									<th> Ciudad  </th>
+									<th> Telefono  </th>
+									<th> Direccion </th>
+									<th> Direccion </th>
+									<th> Contraseña </th>
+									<th> Estado </th>
+									<th> Pais </th>
+									<th> Codigo Postal </th>
+									<th> Territorio</th>
+									
+									
+								</tr>
+								<tr th:each="o:${office}">
+									<td th:text="${o.officeCode}"></td>
+									<td th:text="${o.city}"></td>
+									<td th:text="${o.phone}"></td>
+									<td th:text="${o.addressline1}"></td>
+									<td th:text="${o.addressline2}"></td>
+									<td th:text="${o.state}"></td>
+									<td th:text="${o.contry}"></td>
+									<td th:text="${o.postalCode}"></td>
+									<td th:text="${o.territory}"></td>
+									
+								</tr>
+							</table>
+					</div>
+	  		
+	<footer th:replace="layout/footer :: footer"></footer>
+</div>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="/script.js"></script>					
+ <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	
+</body>
+</html>
