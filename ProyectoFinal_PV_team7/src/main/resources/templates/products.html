@@ -45,16 +45,26 @@
 				 <div class="table-responsive">
 							<table class="table table-striped table-dark">
 								<tr>
-									<th> Id  </th>
-									<th> Description  </th>
-									<th> HTML description  </th>
-									<th> Image </th>
+									<th> Codigo  </th>
+									<th> Nombre </th>
+									<th> Escala  </th>
+									<th> Empresa </th>
+									<th> Descripcion </th>
+									<th> Stock </th>
+									<th> Precio Venta </th>
+									<th> Precio Sugerido </th>
+									<th> Linea del producto </th>
 								</tr>
-								<tr th:each="p:${productLines}">
-									<td th:text="${p.id}"></td>
-									<td th:text="${p.textDescription}"></td>
-									<td th:text="${p.htmlDescription}"></td>
-									<td><img class="img-responsive mx-auto d-block" th:alt="${p.imagen}" th:src="@{'/img/' + ${p.imagen}}" style="max-width: 63%"></td>
+								<tr th:each="p:${products}">
+									<td th:text="${p.productCode}"></td>
+									<td th:text="${p.productName}"></td>
+									<td th:text="${p.productScale}"></td>
+									<td th:text="${p.productVend}"></td>
+									<td th:text="${p.description}"></td>
+									<td th:text="${p.stock}"></td>
+									<td th:text="${p.buyPrice}"></td>
+									<td th:text="${p.MSRP}"></td>
+									<td th:text="${p.productLine.textDescription}"></td>
 								</tr>
 							</table>
 					</div>
@@ -72,7 +82,7 @@
 	  
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="/script.js"></script>					
+ <script type="text/javascript" src="script.js"></script>					
  <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	

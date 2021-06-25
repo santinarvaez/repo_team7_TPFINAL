@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Index Classic Model</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
+	</head>
+	
+<body>
+
+
+	<!-- *********************************************************** -->
+	<!-- ********************** HEADER *****************************  -->
+	<!-- *********************************************************** -->
+	
+		<header class="header">
+			<div class="container logo-nav-container">
+				<a href="#" class="logo">TEAM 7</a>
+				<span class="menu-icon">Ver menú</span>
+				<nav class="navigation">
+					<ul>
+						<li><a th:href="@{/index}">Inicio</a></li>
+						<li><a href="@{/pline/nuevo}">Product</a></li>
+						<li><a href="@{/pline/listado}">Lista</a></li>
+						<li><a href="newproductline.html">Clientes</a></li>
+						<li><a href="#">Contacto</a></li>	
+					</ul>
+				</nav>
+			</div>
+	  	</header>
+	  	
+	  	<main class="main">
+	  		<div class="container">
+	  		
+	<!-- *********************************************************** -->
+	<!-- ********************** MAIN *****************************  -->
+	<!-- *********************************************************** -->
+	  		
+	  			<h1>NEW PRODUCT</h1>
+	  			
+			  		<form th:action="@{/p/guardar}" th:object="${product}" th:method="post">
+			  		
+					  <div class="form-group">
+					    <label for="code">Código del producto</label>
+					    <input type="text" class="form-control" id="code" aria-describedby="idHelp" th:field="*{productCode}" placeholder="Enter code">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Nombre del producto</label>
+					    <input type="text" class="form-control" id="nombre" th:field="*{productName}" placeholder="name">
+					  </div>
+					  <div class="form-group">
+					   <label for="esc">Escala del producto</label>
+					    <input type="text" class="form-control" id="esc" th:field="*{productScale}" placeholder="escale">
+					  </div>
+					  <div class="form-group">
+					   <label for="pvend">Vendedor del producto</label>
+					    <input type="text" class="form-control" id="pvend" th:field="*{productVend}" placeholder="bussines">
+					  </div>
+					  <div class="form-group">
+					   <label for="desc">Descripcion</label>
+					    <input type="text" class="form-control" id="desc" th:field="*{description}" placeholder="description">
+					  </div>
+					  <div class="form-group">
+					   <label for="stock">Stock</label>
+					    <input type="number" class="form-control" id="stock" th:field="*{stock}" placeholder="stock">
+					  </div>
+					  <div class="form-group">
+					   <label for="buyPrice">Precio de venta</label>
+					    <input type="number" class="form-control" id="buyPrice" th:field="*{buyPrice}" step="any" placeholder="stock">
+					  </div>
+					  <div class="form-group">
+					   <label for="MSRP">MSRP</label>
+					    <input type="number" class="form-control" id="MSRP" th:field="*{MSRP}" step="any" placeholder="stock">
+					  </div>
+					  <div class="form-group">
+					   <label for="productLine">Linea del producto</label>
+					    	<select id="productline" th:field="*{productLine}">
+					    	<option th:each = "product: ${productLine}"
+					    	th:value="${product.id}"
+					    	th:text="${product.textDescription}"
+					    	th:selected="true"/>
+					    	</select>
+					  </div>
+					  
+			
+					  
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					  
+					</form>
+	  			
+	  		</div>
+	  	</main>
+	  	
+	<!-- *********************************************************** -->
+	<!-- ********************** FOOTER *****************************  -->
+	<!-- *********************************************************** -->
+	  	
+	  	<footer class= "footer">
+	  	<h1>PROGRAMACION VISUAL 2021 TEAM 7 </h1>
+	  	</footer>
+	  
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="/script.js"></script>					
+ <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	
+ 
+</body>
+</html>

@@ -5,12 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-
 import org.springframework.stereotype.Component;
+
 
 @Component
 @Entity
@@ -29,9 +28,8 @@ public class ProductLine {
 	@Column(name = "htmlDescription")
 	private String htmlDescription;
 	
-	@Lob
-	@Column(name = "img", length=100000)
-	private byte[] imagen;
+	@Column(name = "img")
+	private String imagen;
 	
 	@OneToMany(mappedBy = "productLine")
 	private List<Product> productos = new ArrayList<Product>();
@@ -44,7 +42,7 @@ public class ProductLine {
 	
 	
 	public ProductLine(@NotEmpty String id, @NotEmpty(message = "Ingrese una descripción") String textDescription,
-			String htmlDescription, byte[] imagen, List<Product> productos) {
+			String htmlDescription, String imagen, List<Product> productos) {
 		super();
 		this.id = id;
 		this.textDescription = textDescription;
@@ -80,14 +78,6 @@ public class ProductLine {
 		this.htmlDescription = htmlDescription;
 	}
 
-	public byte[] getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(byte[] imagen) {
-		this.imagen = imagen;
-	}
-
 	public List<Product> getProductos() {
 		return productos;
 	}
@@ -95,6 +85,16 @@ public class ProductLine {
 	public void setProductos(List<Product> productos) {
 		this.productos = productos;
 	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	
+	
 	
 	
 	
