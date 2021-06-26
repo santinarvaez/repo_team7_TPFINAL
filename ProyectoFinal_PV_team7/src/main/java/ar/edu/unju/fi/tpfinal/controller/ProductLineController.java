@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,7 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,14 +29,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tpfinal.model.ProductLine;
 import ar.edu.unju.fi.tpfinal.service.IProductLineService;
+import ar.edu.unju.fi.tpfinal.service.IProductService;
 
 @Controller
 public class ProductLineController {
 
 	private static final Log LOGGER = LogFactory.getLog(ProductLineController.class);
 	
+	//@Autowired
+	//private ProductLine productLine;
+	
 	@Autowired
-	private ProductLine productLine;
+	@Qualifier("productMySql")
+	private IProductService productService;
 	
 	@Autowired
 	@Qualifier("productLineMysql")
@@ -100,6 +110,30 @@ public class ProductLineController {
 		model.addObject("productLines", productLineService.getAllProductLines());
 		return model;
 	}
+	
+	@GetMapping("/plinedit/{id}")
+	public String getProductLineEditPage (@PathVariable(name="id") String id, Model model) {
+		
+		ProductLine prodLine = productLineService.findProductLine(id);
+		model.addAttribute("productLine", prodLine);
+		
+		return "newproductline";
+	}
+	
+
+	/*@GetMapping("/plinedit/{id}")
+	public ModelAndView getEditarProductLinePage(@PathVariable(value="id")String id) {
+		ModelAndView model = new ModelAndView("newproductline");
+		Optional <ProductLine> productLines = productLineService.getProductLineForId(id);
+		model.addObject("productLines", productLines);
+		return model;
+	}*/
+	
+	/*@PutMapping("plines/{id}")
+	public void disableProductLine(@PathVariable String id) {
+		productLineService.softDeleteProductLine(id);
+		productService.softDeleteProduct(id);
+	}*/
 	
 
 }

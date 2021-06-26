@@ -49,12 +49,15 @@
 									<th> Description  </th>
 									<th> HTML description  </th>
 									<th> Image </th>
+									<th> Acciones</th>
 								</tr>
 								<tr th:each="p:${productLines}">
 									<td th:text="${p.id}"></td>
 									<td th:text="${p.textDescription}"></td>
 									<td th:text="${p.htmlDescription}"></td>
 									<td><img class="img-responsive mx-auto d-block" th:alt="${p.imagen}" th:src="@{'/img/' + ${p.imagen}}" style="max-width: 63%"></td>
+									<!-- <td><a class="editar" th:href="@{/plinedit/}+${p.id}"></a></td> -->
+									<td><a class="btn btn-warning" th:href="@{/plinedit/}+${p.id}">Editar</a></td>
 								</tr>
 							</table>
 					</div>

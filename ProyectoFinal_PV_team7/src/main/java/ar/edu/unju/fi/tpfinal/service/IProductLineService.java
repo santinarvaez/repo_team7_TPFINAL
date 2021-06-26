@@ -10,4 +10,6 @@ public interface IProductLineService {
 	public List<ProductLine> getAllProductLines();
 	public Optional <ProductLine> getProductLineForId(String id);
 	public void eliminarProductLine(String id);	
+	public ProductLine findProductLine(String id);
+
 }

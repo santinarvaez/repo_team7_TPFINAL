@@ -41,6 +41,8 @@ public class ProductLine {
 	}
 	
 	
+
+
 	public ProductLine(@NotEmpty String id, @NotEmpty(message = "Ingrese una descripción") String textDescription,
 			String htmlDescription, String imagen, List<Product> productos) {
 		super();
@@ -50,6 +52,8 @@ public class ProductLine {
 		this.imagen = imagen;
 		this.productos = productos;
 	}
+
+
 
 
 	//GETTERS & SETTERS
