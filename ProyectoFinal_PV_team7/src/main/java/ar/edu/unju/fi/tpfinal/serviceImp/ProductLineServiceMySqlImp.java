@@ -18,8 +18,6 @@ public class ProductLineServiceMySqlImp implements IProductLineService {
 	@Autowired
 	private IProductLineRepository productLineRepository;
 	
-	
-	
 	@Override
 	public void addProductLine(ProductLine productLine) {
 		productLineRepository.save(productLine);
@@ -46,5 +44,13 @@ public class ProductLineServiceMySqlImp implements IProductLineService {
 	public void eliminarProductLine(String id) {
 		productLineRepository.deleteById(id);
 	}
+
+	@Override
+	public ProductLine findProductLine(String id) {
+		return productLineRepository.findById(id).orElse(null);
+	}
+
+
+	
 
 }

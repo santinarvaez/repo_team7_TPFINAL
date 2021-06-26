@@ -2,10 +2,8 @@ package ar.edu.unju.fi.tpfinal.serviceImp;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.tpfinal.model.Product;
 import ar.edu.unju.fi.tpfinal.repository.IProductRepository;
 import ar.edu.unju.fi.tpfinal.service.IProductService;
@@ -18,7 +16,7 @@ public class ProductServiceMySqlImp implements IProductService{
 	
 	@Autowired
 	private IProductRepository IProductRepository;
-	
+
 
 	@Override
 	public void addProduct(Product product) {
@@ -47,5 +45,6 @@ public class ProductServiceMySqlImp implements IProductService{
 		IProductRepository.deleteById(id);
 		
 	}
+	
 
 }
