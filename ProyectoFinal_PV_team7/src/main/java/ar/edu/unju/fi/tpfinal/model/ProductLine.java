@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.stereotype.Component;
 
 
@@ -33,6 +35,10 @@ public class ProductLine {
 	
 	@OneToMany(mappedBy = "productLine")
 	private List<Product> productos = new ArrayList<Product>();
+	
+	@Column
+	@NotNull(message="Debe seleccionar un estado para el Usuario")
+	private boolean estado;
 	
 	//CONSTRUCTORES
 	
