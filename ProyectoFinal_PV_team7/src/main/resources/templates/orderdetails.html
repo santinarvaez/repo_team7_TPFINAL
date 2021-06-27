@@ -14,7 +14,7 @@
 
 
 	<!-- *********************************************************** -->
-	<!-- ********************** HEADER *****************************  -->
+	<!-- ********************** HEADER ****************************  -->
 	<!-- *********************************************************** -->
 	
 		<header class="header">
@@ -37,47 +37,31 @@
 	  		<div class="container">
 	  		
 	<!-- *********************************************************** -->
-	<!-- ********************** MAIN *****************************  -->
+	<!-- ********************** MAIN ******************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>Autos a escala</h1>
+	  			<h1>ORDER DETAILS</h1>
 	  			
-	  			<p>
-	  			Cheesecake sugar plum lollipop sweet bandera
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit cho
-	  			 chocolate. Biscuit bonbon donut sweet rolles
-	  			 danish dessert. Cake oat cake gummi bears to
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
+				 <div class="table-responsive">
+							<table class="table table-striped table-dark">
+								<tr>
+									<th> Id Orden  </th>
+									<th> Producto </th>
+									<th> Cantidad  </th>
+									<th> Precio c/u  </th>
+									<th> N de Linea </th>
+
+								</tr>
+								<tr th:each="o:${orderDetails}">
+									<td th:text="${o.id.orderNumber.orderNumber}"></td>
+									<td th:text="${o.id.productCode.productName}"></td>
+									<td th:text="${o.quantityOrdered}"></td>
+									<td th:text="${o.priceEach}"></td>
+									<td th:text="${o.orderLineNumber}"></td>			       
+								</tr>
+							</table>
+					</div>
+	  			
 	  		</div>
 	  	</main>
 	  	
@@ -88,7 +72,7 @@
 	<div th:insert="layouts/footer :: footer"></div>
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="/script.js"></script>					
+ <script type="text/javascript" src="script.js"></script>					
  <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	

@@ -8,8 +8,8 @@ public interface IProductLineService {
 	public void addProductLine(ProductLine productLine);
 	public ProductLine getProductLine();
 	public List<ProductLine> getAllProductLines();
-	public Optional <ProductLine> getProductLineForId(String id);
-	public void eliminarProductLine(String id);	
+	public Optional <ProductLine> getProductLineForId(String id);//No testeado
+	public void eliminarProductLine(String id);	//No testeado
 	public ProductLine findProductLine(String id);
 
 }

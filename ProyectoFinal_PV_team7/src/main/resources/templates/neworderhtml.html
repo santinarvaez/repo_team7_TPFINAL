@@ -26,7 +26,7 @@
 						<li><a th:href="@{/index}">Inicio</a></li>
 						<li><a href="@{/pline/nuevo}">Product</a></li>
 						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="#">Clientes</a></li>
+						<li><a href="newproductline.html">Clientes</a></li>
 						<li><a href="#">Contacto</a></li>	
 					</ul>
 				</nav>
@@ -40,52 +40,55 @@
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>Autos a escala</h1>
+	  			<h1>NEW PRODUCT</h1>
 	  			
-	  			<p>
-	  			Cheesecake sugar plum lollipop sweet bandera
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit cho
-	  			 chocolate. Biscuit bonbon donut sweet rolles
-	  			 danish dessert. Cake oat cake gummi bears to
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
+			  		<form th:action="@{/addorder}" th:object="${order}" th:method="post">
+			  		
+					  <div class="form-group">
+					    <label for="ordNumber">Numero de Orden</label>
+					    <input type="number" class="form-control" id="ordNumber" aria-describedby="idHelp" th:field="*{orderNumber}" placeholder="Enter order Number">
+					  </div>
+					  <div class="form-group">
+					    <label for="orderDate">Fecha de la Orden</label>
+					    <input type="date" class="form-control" id="nombre" th:field="*{orderDate}" placeholder="date">
+					  </div>
+					  <div class="form-group">
+					   <label for="requiredDate">Fecha requerida</label>
+					    <input type="date" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
+					  </div>
+					  <div class="form-group">
+					   <label for="status">Estado</label>
+					    <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="status">
+					  </div>
+					  <div class="form-group">
+					   <label for="comments">Comentarios</label>
+					    <input type="text" class="form-control" id="comments" th:field="*{comments}" placeholder="description">
+					  </div>
+					  
+					 <div class="form-group">
+					    <label for="customer">Seleccione cliente</label>
+					    <select th:field="*{customer}" id="customer" class="form-control">
+							<option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.customerName}"></option>
+						</select>
+					  </div> 
+					
+
+			
+					  
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					  
+					</form>
+	  			
 	  		</div>
 	  	</main>
 	  	
-	<!-- ************************************************************ -->
+	<!-- *********************************************************** -->
 	<!-- ********************** FOOTER *****************************  -->
-	<!-- ************************************************************ -->
+	<!-- *********************************************************** -->
 	  	
 	<div th:insert="layouts/footer :: footer"></div>
+
+	  
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <script src="/script.js"></script>					
