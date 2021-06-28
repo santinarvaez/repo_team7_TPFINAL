@@ -45,6 +45,12 @@ public class ProductServiceMySqlImp implements IProductService{
 		IProductRepository.deleteById(id);
 		
 	}
+
+	@Override
+	public Product findProduct(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

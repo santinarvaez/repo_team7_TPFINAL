@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import ar.edu.unju.fi.tpfinal.model.Oficce;
 
-public interface IOficceRepository extends CrudRepository <Oficce, String> {
+public interface IOficceRepository extends CrudRepository <Oficce, Integer> {
 
 }
