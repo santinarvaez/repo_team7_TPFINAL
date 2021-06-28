@@ -8,7 +8,7 @@ public interface IProductService {
 	public void addProduct(Product product);
 	public Product getProduct();
 	public List<Product> getAllProducts();
+	public Product findProduct(String id);
 	public Optional <Product> getProductForId(String id);
 	public void eliminarProductLine(String id);	
-
 }
