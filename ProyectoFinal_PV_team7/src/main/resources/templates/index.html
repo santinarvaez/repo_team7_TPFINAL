@@ -17,29 +17,18 @@
 	<!-- ********************** HEADER *****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="#">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
-	  	
-	  	<main class="main">
-	  		<div class="container">
-	  		
+	<div th:insert="layouts/header :: header"></div>
+	
 	<!-- *********************************************************** -->
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
+
+	  	
+	  	<main class="main">
+	  		<div class="container">
+	  		
+
 	  			<h1>Autos a escala</h1>
 	  			
 	  			<p>
@@ -86,6 +75,10 @@
 	<!-- ************************************************************ -->
 	  	
 	<div th:insert="layouts/footer :: footer"></div>
+	
+	<!-- ************************************************************ -->
+	<!-- ********************** SCRIPTS *****************************  -->
+	<!-- ************************************************************ -->
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <script src="/script.js"></script>					

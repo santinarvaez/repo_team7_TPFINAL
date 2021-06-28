@@ -3,6 +3,7 @@ package ar.edu.unju.fi.tpfinal.serviceImp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tpfinal.model.Customer;
 import ar.edu.unju.fi.tpfinal.model.Payment;
@@ -10,6 +11,7 @@ import ar.edu.unju.fi.tpfinal.model.PaymentId;
 import ar.edu.unju.fi.tpfinal.repository.IPaymentRepository;
 import ar.edu.unju.fi.tpfinal.service.IPaymentService;
 
+@Service("paymentMySql")
 public class PaymentServiceMySqlImp implements IPaymentService {
 	
 	@Autowired
