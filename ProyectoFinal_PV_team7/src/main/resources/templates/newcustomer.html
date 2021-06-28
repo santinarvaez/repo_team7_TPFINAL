@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Index Classic Model</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
+	</head>
+	
+<body>
+
+
+	<!-- *********************************************************** -->
+	<!-- ********************** HEADER *****************************  -->
+	<!-- *********************************************************** -->
+	
+		<header class="header">
+			<div class="container logo-nav-container">
+				<a href="#" class="logo">TEAM 7</a>
+				<span class="menu-icon">Ver menú</span>
+				<nav class="navigation">
+					<ul>
+						<li><a th:href="@{/index}">Inicio</a></li>
+						<li><a href="@{/pline/nuevo}">Product</a></li>
+						<li><a href="@{/pline/listado}">Lista</a></li>
+						<li><a href="newproductline.html">Clientes</a></li>
+						<li><a href="#">Contacto</a></li>	
+					</ul>
+				</nav>
+			</div>
+	  	</header>
+	  	
+	  	<main class="main">
+	  		<div class="container">
+	  		
+	<!-- *********************************************************** -->
+	<!-- ********************** MAIN *****************************  -->
+	<!-- *********************************************************** -->
+	  		
+	  			<h1>NEW PRODUCT</h1>
+	  			
+			  		<form th:action="@{/addcustomer}" th:object="${customer}" th:method="post">
+			  		
+					  <div class="form-group">
+					    <label for="customerName">Nombre del cliente</label>
+					    <input type="number" class="form-control" id="customerName" aria-describedby="customerName" th:field="*{customerName}" placeholder="Enter customer Number">
+					  </div>
+					 
+
+			
+					  
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					  
+					</form>
+	  			
+	  		</div>
+	  	</main>
+	  	
+	<!-- *********************************************************** -->
+	<!-- ********************** FOOTER *****************************  -->
+	<!-- *********************************************************** -->
+	  	
+	<div th:insert="layouts/footer :: footer"></div>
+
+	  
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="/script.js"></script>					
+ <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
+ <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	
+ 
+</body>
+</html>

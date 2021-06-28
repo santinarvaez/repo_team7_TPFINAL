@@ -44,7 +44,7 @@ public class OrderController {
 	}
 	
 	@GetMapping("/orderlist")
-	public ModelAndView getListadoPage() {
+	public ModelAndView getOrderListadoPage() {
 		ModelAndView model = new ModelAndView("orders");
 		model.addObject("orders", orderService.getAllOrders());
 		return model;
