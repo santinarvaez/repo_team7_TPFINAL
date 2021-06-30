@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.tpfinal.model.Payment;
+import ar.edu.unju.fi.tpfinal.service.ICustomerService;
 import ar.edu.unju.fi.tpfinal.service.IPaymentService;
 
 @Controller
@@ -21,10 +22,14 @@ public class PaymentController {
 	@Qualifier("paymentMySql")
 	private IPaymentService paymentService;
 	
+	@Autowired
+	@Qualifier("customerMySql")
+	private ICustomerService customerService;
+	
 	@GetMapping("/newpayment")
 	public String getNewPaymentPage(Model model) {
 		model.addAttribute("payment",paymentService.getPayment());
-		//model.addAttribute("customers",)
+		model.addAttribute("customers",customerService.getAllCustomers());
 		return "newpayment";
 	}
 	

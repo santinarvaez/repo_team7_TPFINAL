@@ -45,13 +45,13 @@ public class ProductLineController {
 	@Qualifier("productLineMysql")
 	private IProductLineService productLineService;
 	
-	@GetMapping("/pline/nuevo")
+	@GetMapping("/newpline")
 	public String getNewProductLinePage(Model model) {
 		model.addAttribute("productLine",productLineService.getProductLine());
 		return "newproductline";
 	}
 	
-	@PostMapping("/pline/guardar")
+	@PostMapping("/addpline")
 	public ModelAndView guardarProductoLinePage(@Valid @ModelAttribute("productLine")ProductLine productLine,BindingResult resultadoValidacion,@RequestParam("file") MultipartFile imagen) {
 		ModelAndView modelView;
 		
@@ -102,7 +102,7 @@ public class ProductLineController {
 		
 	}
 
-	@GetMapping("/pline/listado")
+	@GetMapping("/plinelist")
 	public ModelAndView getListadoPage() {
 		ModelAndView model = new ModelAndView("productLines");
 		model.addObject("productLines", productLineService.getAllProductLines());

@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER *****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="newproductline.html">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+		<div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -42,36 +28,27 @@
 	  		
 	  			<h1>NEW PRODUCT</h1>
 	  			
-			  		<form th:action="@{/addorder}" th:object="${order}" th:method="post">
+			  		<form th:action="@{/addpayment}" th:object="${payment}" th:method="post">
 			  		
-					  <div class="form-group">
-					    <label for="ordNumber">Numero de Orden</label>
-					    <input type="number" class="form-control" id="ordNumber" aria-describedby="idHelp" th:field="*{orderNumber}" placeholder="Enter order Number">
-					  </div>
-					  <div class="form-group">
-					    <label for="orderDate">Fecha de la Orden</label>
-					    <input type="date" class="form-control" id="nombre" th:field="*{orderDate}" placeholder="date">
-					  </div>
-					  <div class="form-group">
-					   <label for="requiredDate">Fecha requerida</label>
-					    <input type="text" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
-					  </div>
-					  <div class="form-group">
-					   <label for="status">Estado</label>
-					    <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="status">
-					  </div>
-					  <div class="form-group">
-					   <label for="comments">Comentarios</label>
-					    <input type="text" class="form-control" id="comments" th:field="*{comments}" placeholder="description">
-					  </div>
-					  
-					  <!-- <div class="form-group">
-					    <label for="customer">Seleccione cliente</label>
-					    <select th:field="*{customer}" id="customer" class="form-control">
-							<option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.customerName}"></option>
+			  			
+					 <label for="orderId">Seleccione id del pago</label>
+					    <select th:field="*{id.customer.customerNumber}" id="customerNumber" class="form-control">
+							<option th:each="c : ${customers}" th:value="${c.customerNumber}" th:text="${c.customerNumber}"></option>
 						</select>
-					  </div>  -->
-					
+					 <div class="form-group ">
+						<label for="checkNumber" class="col-form-label">Número de cheque</label>
+						<input type="text" class="form-control" id="checkNumber" th:field="*{id.checkNumber}">
+					</div>
+					 <div class="form-group ">
+						<label for="paymentDate" class="col-form-label">Fecha de pago</label>
+						<input type="date" class="form-control" id="paymentDate" th:field="*{paymentDate}">
+					</div>
+					 <div class="form-group ">
+						<label for="amount" class="col-form-label">Monto</label>
+						<input type="number" class="form-control" id="amount" th:field="*{amount}" step="any">
+					</div>
+	
+			  		
 
 			
 					  

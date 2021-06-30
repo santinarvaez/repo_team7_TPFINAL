@@ -197,6 +197,14 @@ public class Customer {
 	public void setCreditLimit(Double creditLimit) {
 		this.creditLimit = creditLimit;
 	}
+
+	public Employee getSalesRepEmployeeNumber() {
+		return salesRepEmployeeNumber;
+	}
+
+	public void setSalesRepEmployeeNumber(Employee salesRepEmployeeNumber) {
+		this.salesRepEmployeeNumber = salesRepEmployeeNumber;
+	}
 	
 	
 	

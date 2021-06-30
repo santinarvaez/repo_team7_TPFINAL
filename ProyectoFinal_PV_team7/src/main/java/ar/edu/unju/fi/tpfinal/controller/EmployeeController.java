@@ -29,7 +29,7 @@ public class EmployeeController {
 	public String getNewEmployeePage (Model model) {
 		model.addAttribute("employee",employeeService.getEmployee());
 		model.addAttribute("oficces",oficceService.getAllOficces());
-		return "newcustomer";
+		return "newemployee";
 	}
 	
 	@PostMapping("/addemployee")
@@ -40,7 +40,7 @@ public class EmployeeController {
 			modelView = new ModelAndView("newemployee");
 			return modelView;
 		}else {
-			modelView = new ModelAndView("employee");
+			modelView = new ModelAndView("employees");
 			employeeService.addEmployee(employee);
 			modelView.addObject("employees",employeeService.getAllEmployees());
 			return modelView;

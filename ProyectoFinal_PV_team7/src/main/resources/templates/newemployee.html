@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER *****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="newproductline.html">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+	<div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -40,41 +26,50 @@
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>NEW PRODUCT</h1>
+	  			<h1>NEW EMPLOYEE</h1>
 	  			
-			  		<form th:action="@{/addorder}" th:object="${order}" th:method="post">
+			  		<form th:action="@{/addemployee}" th:object="${employee}" th:method="post">
 			  		
 					  <div class="form-group">
-					    <label for="ordNumber">Numero de Orden</label>
-					    <input type="number" class="form-control" id="ordNumber" aria-describedby="idHelp" th:field="*{orderNumber}" placeholder="Enter order Number">
+					    <label for=employeeNumber>Numero de empleado</label>
+					    <input type="number" class="form-control" id="employeeNumber" aria-describedby="idHelp" th:field="*{employeeNumber}" placeholder="Enter employee Number">
 					  </div>
 					  <div class="form-group">
-					    <label for="orderDate">Fecha de la Orden</label>
-					    <input type="date" class="form-control" id="nombre" th:field="*{orderDate}" placeholder="date">
+					    <label for=lastName>Apellido</label>
+					    <input type="text" class="form-control" id="lastName" aria-describedby="idHelp" th:field="*{lastName}" placeholder="Enter employee lastname">
 					  </div>
 					  <div class="form-group">
-					   <label for="requiredDate">Fecha requerida</label>
-					    <input type="text" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
+					    <label for=firstName>Nombre</label>
+					    <input type="text" class="form-control" id="firstName" aria-describedby="idHelp" th:field="*{firstName}" placeholder="Enter employee firstName">
 					  </div>
 					  <div class="form-group">
-					   <label for="status">Estado</label>
-					    <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="status">
+					    <label for=extension>Extension</label>
+					    <input type="text" class="form-control" id="extension" aria-describedby="idHelp" th:field="*{extension}" placeholder="Enter employee extension">
 					  </div>
 					  <div class="form-group">
-					   <label for="comments">Comentarios</label>
-					    <input type="text" class="form-control" id="comments" th:field="*{comments}" placeholder="description">
+					    <label for=email>EMAIL</label>
+					    <input type="text" class="form-control" id="email" aria-describedby="idHelp" th:field="*{email}" placeholder="Enter employee email">
 					  </div>
 					  
-					  <!-- <div class="form-group">
-					    <label for="customer">Seleccione cliente</label>
-					    <select th:field="*{customer}" id="customer" class="form-control">
-							<option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.customerName}"></option>
+					  <!-- CLASE FORANEA -->
+					  
+					    <label for="customer">Oficina</label>
+					    <select th:field="*{officeCode}" id="oficceCode" class="form-control">
+							<option th:each="f : ${oficces}" th:value="${f.officeCode}" th:text="${f.officeCode}"></option>
 						</select>
-					  </div>  -->
-					
-
-			
-					  
+						
+					<!-- *  -->
+						
+					  <div class="form-group">
+					    <label for=jobTitle>Título</label>
+					    <input type="text" class="form-control" id="jobTitle" aria-describedby="idHelp" th:field="*{jobTitle}" placeholder="Enter employee jobTitle">
+					  </div>
+						
+					  <div class="form-group">
+					    <label for=reportsTo>A cargo</label>
+					    <input type="text" class="form-control" id="reportsTo" aria-describedby="idHelp" th:field="*{reportsTo}" placeholder="reportsTo">
+					  </div>
+							  
 					  <button type="submit" class="btn btn-primary">Submit</button>
 					  
 					</form>

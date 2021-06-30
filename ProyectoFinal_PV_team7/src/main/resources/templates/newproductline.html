@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER *****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="newproductline.html">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+		<div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -42,7 +28,7 @@
 	  		
 	  			<h1>PRODUCT LINES</h1>
 	  			
-			  		<form th:action="@{/pline/guardar}" th:object="${productLine}" th:method="post" enctype="multipart/form-data">
+			  		<form th:action="@{/addpline}" th:object="${productLine}" th:method="post" enctype="multipart/form-data">
 			  		
 					  <div class="form-group">
 					    <label for="id">Id</label>
@@ -72,9 +58,7 @@
 	<!-- ********************** FOOTER *****************************  -->
 	<!-- *********************************************************** -->
 	  	
-	  	<footer class= "footer">
-	  	<h1>PROGRAMACION VISUAL 2021 TEAM 7 </h1>
-	  	</footer>
+	 <div th:insert="layouts/footer :: footer"></div>
 	  
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

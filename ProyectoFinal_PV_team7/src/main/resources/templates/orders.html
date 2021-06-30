@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER ****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="#">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+		<div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -39,6 +25,10 @@
 	<!-- *********************************************************** -->
 	<!-- ********************** MAIN ******************************  -->
 	<!-- *********************************************************** -->
+	
+	<div class="btn-group justify-content-center">
+		<a href="/neworderds" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Agregar nuevo</a>
+	</div>
 	  		
 	  			<h1>ORDER DETAILS</h1>
 	  			
@@ -59,7 +49,7 @@
 									<td th:text="${o.requiredDate}"></td>
 									<td th:text="${o.status}"></td>
 									<td th:text="${o.comments}"></td>	
-						    	<!-- <td th:text="${o.customer}"></td>  -->		       
+						    		<td th:text="${o.customer.customerNumber}"></td> 
 								</tr>
 							</table>
 					</div>

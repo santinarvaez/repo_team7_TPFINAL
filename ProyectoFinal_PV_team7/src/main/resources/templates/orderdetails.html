@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER ****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="#">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+		<div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -40,7 +26,7 @@
 	<!-- ********************** MAIN ******************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>ORDER DETAILS</h1>
+	  			<h1>Order Details</h1>
 	  			
 				 <div class="table-responsive">
 							<table class="table table-striped table-dark">

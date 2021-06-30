@@ -32,7 +32,7 @@ public class OrderDetailController {
 	private IOrderService orderService;
 	
 	
-	@GetMapping("/orderd/nueva")
+	@GetMapping("/neworderds")
 	public String getNewOrderDetailPage (Model model) {
 		model.addAttribute("orderDetail",orderDetailService.getOrderDetail());
 		model.addAttribute("orders",orderService.getAllOrders());
@@ -42,7 +42,7 @@ public class OrderDetailController {
 	}
 	
 	
-	@PostMapping("/orderd/guardar")
+	@PostMapping("/addorderds")
 	public ModelAndView guardarOrderDetailPage(@Valid @ModelAttribute("orderDetail")OrderDetail orderDetail,BindingResult resultadoValidacion) {
 		ModelAndView modelView;
 		
@@ -60,7 +60,7 @@ public class OrderDetailController {
 	
 	}
 	
-	@GetMapping("/orderd/listado")
+	@GetMapping("/orderdslist")
 	public ModelAndView getListadoPage() {
 		ModelAndView model = new ModelAndView("orderdetails");
 		model.addObject("orderDetails", orderDetailService.getAllOrderDetails());

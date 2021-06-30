@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
+		<link rel="stylesheet" type="text/css" th:href="@{/css/cards.css}"> 
 	</head>
 	
 <body>
@@ -18,7 +19,7 @@
 	<!-- *********************************************************** -->
 	
 	<div th:insert="layouts/header :: header"></div>
-	
+
 	<!-- *********************************************************** -->
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
@@ -26,62 +27,70 @@
 
 	  	
 	  	<main class="main">
-	  		<div class="container">
-	  		
+	  	
+	  		 <h1 class="title"> Muscle car - Autos a escala</h1>
+    
+			    <div class="container">
+			       
+			        <div class="card">
+			            <img src="img/cars/auto1.png">
+			            <h4>Chevrolet</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			        <div class="card">
+			            <img src="img/cars/auto2.png">
+			            <h4>Impala</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			        <div class="card">
+			            <img src="img/cars/auto3.png">
+			            <h4>Taunus</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			         <div class="card">
+			            <img src="img/cars/auto6.png">
+			            <h4>Mercedes</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			        <div class="card">
+			            <img src="img/cars/auto5.png">
+			            <h4>Charger</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			        <div class="card">
+			            <img src="img/cars/auto4.png">
+			            <h4>Mustang</h4>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+			            <a href="#">Leer más</a>
+			        </div>
+			        
+			    </div>
 
-	  			<h1>Autos a escala</h1>
-	  			
-	  			<p>
-	  			Cheesecake sugar plum lollipop sweet bandera
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit cho
-	  			 chocolate. Biscuit bonbon donut sweet rolles
-	  			 danish dessert. Cake oat cake gummi bears to
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  				  			<p>
-	  			Cheesecake sugar plum lollipop sweet 
-	  			roll jelly-o lollipop lemon drops. Tart cake 
-	  			sesame snaps liquorice oat cake. Biscuit chocolate
-	  			 chocolate. Biscuit bonbon donut sweet roll muffin 
-	  			 danish dessert. Cake oat cake gummi bears marshmallow
-	  			  brownie ice cream. Donut jelly-o 
-	  			tiramisu biscuit gummi bears soufflé.
-	  			</p>
-	  		</div>
+			<br>
+	  		
 	  	</main>
 	  	
 	<!-- ************************************************************ -->
 	<!-- ********************** FOOTER *****************************  -->
 	<!-- ************************************************************ -->
 	  	
-	<div th:insert="layouts/footer :: footer"></div>
+	<div class="footer" th:insert="layouts/footer :: footer"></div>
 	
 	<!-- ************************************************************ -->
 	<!-- ********************** SCRIPTS *****************************  -->
 	<!-- ************************************************************ -->
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="/script.js"></script>					
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>				
  <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	
