@@ -3,6 +3,7 @@ body{
 	color: #333;
 	font-size: 1.3rem;
 	line-height: 1.6em;
+
 }
 
 h1{
@@ -20,22 +21,6 @@ p {
 	margin: 0 auto;
 }
 /******HEADER******/
-.header{
-	background: #333;
-	color: white;
-	padding: 2rem 0;
-	
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	
-}
-
-.header a{
-	color: white;
-	text-decoration: none;
-}
 
 .logo-nav-container{
 	display: flex;
@@ -46,14 +31,17 @@ p {
 
 .logo{
 	letter-spacing: 15px;
-	font-size: 1.4em;
+	font-size: 1.6em;
+	display: flex;
 }
+
 /******NAV******/
-.navigation ul{
+/*.navigation ul{
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
+
 
 	.navigation ul li{
 		display: inline-block;
@@ -66,31 +54,208 @@ p {
 			border-radius: 5px;
 		}
 		
+			.navigation li ul{
+				display: none;
+
+			}
+			
 			.navigation ul li a:hover{
 							background: #4a4a4a;
 					}
+					
+*/
+
+header {
+  height: 64px;
+  background: #000;
+  color: #FFF;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#btn-menu {
+  display: none;
+}
+
+header label {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu ul {
+  background: #000;
+  display: flex;
+  list-style: none;
+}
+
+.menu ul ul {
+  display: none;
+}
+
+.menu a {
+  display: block;
+  padding: 15px 20px;
+  color: #FFF;
+  text-decoration: none;
+  line-height: 32px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+.menu a:hover {
+  background: #2C3E50;
+}
+
+.menu a i {
+  margin-left: 10px;
+}
+
+.menu ul li:hover ul {
+  transition: all 0.3s ease;
+  display: block;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  header label {
+    display: block;
+    padding-top: 16px;
+    padding-right: 16px;
+    transition: all 0.4s ease;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 70%;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+  }
+  
+  .menu ul {
+    flex-direction: column;
+    display: block;
+  }
+  
+  .menu ul li:hover ul {
+    display: none;
+    position: static;
+  }
+  
+  .menu a i {
+    position: absolute;
+    right: 16px;
+    line-height: 32px;
+  }
+  
+  #btn-menu:checked ~ .menu {
+    transform: translateX(0%);
+  }
+  
+}
+
+
+header label {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu ul {
+  background: #000;
+  display: flex;
+  list-style: none;
+}
+
+.menu ul ul {
+  display: none;
+}
+
+.menu a {
+  display: block;
+  padding: 15px 20px;
+  color: #FFF;
+  text-decoration: none;
+  line-height: 32px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+.menu a:hover {
+  background: #2C3E50;
+  transition: all 0.4s linear;
+  border-radius: 5px;
+}
+
+.menu a i {
+  margin-left: 10px;
+}
+
+.menu ul li:hover ul {
+  display: block;
+  position: absolute;
+  transition: all 0.4s linear;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  header label {
+    display: block;
+    padding-top: 16px;
+    padding-right: 16px;
+    transition: all 0.4s ease;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 70%;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+  }
+  
+  .menu ul {
+    flex-direction: column;
+    display: block;
+  }
+  
+  .menu ul li:hover ul {
+    display: none;
+    position: static;
+  }
+  
+  .menu a i {
+    position: absolute;
+    right: 16px;
+    line-height: 32px;
+  }
+  
+  #btn-menu:checked ~ .menu {
+    transform: translateX(0%);
+  }
+  
 /*ICONO DEL MENU*/
 
 .menu-icon{
 	display: none;
 }
 
-
 .main{
 	padding-top: 12rem;
 	
-}			
-
-.footer{
-	background: #f2f2f2;
-	padding: 4rem 0;
-	text-align: center;
-	margin-top: 6rem;
 }
+			
+.footer{
+	margin-top: 26rem;
+}
+
 
 /*HEADER RESPONSIVE FOR 767px DEVICES*/
 
-@media only screen and (max-width: 767px){
+/*@media only screen and (max-width: 767px){
 	
 .menu-icon{
 	display: block;
@@ -117,8 +282,7 @@ p {
 			.navigation ul li a{
 				display: block;
 				padding: 0.5rem 0;
-				transition: all 0.4s linear;
-				border-radius: 5px;
+				
 			}
 			
 				.navigation ul li a:hover{
@@ -126,4 +290,6 @@ p {
 				}
 	
 	
+}
+*/
 }

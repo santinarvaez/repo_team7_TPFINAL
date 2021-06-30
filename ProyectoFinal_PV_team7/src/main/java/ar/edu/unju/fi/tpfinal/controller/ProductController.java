@@ -33,7 +33,7 @@ public class ProductController {
 	 */
 	
 	
-	@GetMapping("/p/nuevo")
+	@GetMapping("/pnew")
 	public String getNewProductLinePage(Model model) {
 	model.addAttribute("product",productService.getProduct());
 	model.addAttribute("productLine",productLineService.getAllProductLines());
@@ -47,7 +47,7 @@ public class ProductController {
 	 */
 	
 	
-	@PostMapping("/p/guardar")
+	@PostMapping("/addp")
 	public ModelAndView guardarProductoLinePage(@Valid @ModelAttribute("product")Product product,BindingResult resultadoValidacion) {
 		ModelAndView modelView;
 		
@@ -73,7 +73,7 @@ public class ProductController {
 	 * 
 	 */
 	
-	@GetMapping("/p/listado")
+	@GetMapping("/plist")
 	public ModelAndView getListadoPage() {
 		ModelAndView model = new ModelAndView("products");
 		model.addObject("products", productService.getAllProducts());

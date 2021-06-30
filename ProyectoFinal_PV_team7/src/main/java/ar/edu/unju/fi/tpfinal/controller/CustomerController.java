@@ -35,7 +35,7 @@ public class CustomerController {
 	}
 	
 	
-	@PostMapping("/savecustomer")
+	@PostMapping("/addcustomer")
 	public ModelAndView guardarCustomerPage(@Valid @ModelAttribute("customer")Customer customer,BindingResult resultadoValidacion) {
 		ModelAndView modelView;
 		

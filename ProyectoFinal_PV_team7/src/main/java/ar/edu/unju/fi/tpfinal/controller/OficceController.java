@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.tpfinal.controller;
 
 import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,9 @@ import ar.edu.unju.fi.tpfinal.service.IOficceService;
 
 @Controller
 public class OficceController {
+	
+	private static final Log LOGGER = LogFactory.getLog(ProductLineController.class);
+
 
 	@Autowired
 	@Qualifier("oficceMySql")
@@ -31,11 +37,14 @@ public class OficceController {
 		ModelAndView modelView;
 		
 		if(resultadoValidacion.hasErrors()==true) {
+			LOGGER.info("DIO ERROR->>"+oficce.getCity());
+
 			modelView = new ModelAndView("newoficce");
 			return modelView;
 		}else {
 			modelView = new ModelAndView("oficces");
 			oficceService.addOficce(oficce);
+			LOGGER.info("oficce->>"+oficce.getCity());
 			modelView.addObject("oficces",oficceService.getAllOficces());
 			return modelView;
 		}

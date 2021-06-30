@@ -2,6 +2,8 @@ package ar.edu.unju.fi.tpfinal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -14,7 +16,7 @@ public class Oficce {
 	
 	@Id
 	@Column(name = "of_code")
-	private Integer officeCode;
+	private String officeCode;
 	
 	@NotEmpty(message = "Ingrese un nombre de ciudad")
 	@Column(name = "of_city")
@@ -49,7 +51,7 @@ public class Oficce {
 	public Oficce() {
 	}
 	
-	public Oficce(Integer officeCode, @NotEmpty(message = "Ingrese un nombre de ciudad") String city,
+	public Oficce(String officeCode, @NotEmpty(message = "Ingrese un nombre de ciudad") String city,
 			@NotEmpty(message = "Ingrese un telefono") String phone,
 			@NotEmpty(message = "Ingrese una dirección válida") String addressline1, String addressline2, String state,
 			String country, String postalCode, String territory) {
@@ -69,11 +71,11 @@ public class Oficce {
 
 	//GETTERS & SETTERS 
 
-	public Integer getOfficeCode() {
+	public String getOfficeCode() {
 		return officeCode;
 	}
 
-	public void setOfficeCode(Integer officeCode) {
+	public void setOfficeCode(String officeCode) {
 		this.officeCode = officeCode;
 	}
 

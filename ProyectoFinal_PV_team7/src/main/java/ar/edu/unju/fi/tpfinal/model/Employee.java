@@ -72,6 +72,8 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	public Employee(Integer employeeNumber, @NotEmpty(message = "Ingrese un nombre") String lastName,
 			@NotEmpty(message = "Ingrese un nombre") String firstName,
 			@NotNull(message = "Este campo no puede estar vacio") String extension, @NotNull String email,
@@ -86,6 +88,8 @@ public class Employee {
 		this.jobTitle = jobTitle;
 		this.reportsTo = reportsTo;
 	}
+
+
 
 	//GETTERS & SETTERS
 	
@@ -144,6 +148,15 @@ public class Employee {
 	public void setReportsTo(Employee reportsTo) {
 		this.reportsTo = reportsTo;
 	}
+
+	public Oficce getOfficeCode() {
+		return officeCode;
+	}
+
+	public void setOfficeCode(Oficce officeCode) {
+		this.officeCode = officeCode;
+	}
+	
 	
 	
 }

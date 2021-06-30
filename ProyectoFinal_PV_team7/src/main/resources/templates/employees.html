@@ -17,21 +17,7 @@
 	<!-- ********************** HEADER ****************************  -->
 	<!-- *********************************************************** -->
 	
-		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a href="@{/pline/nuevo}">Product</a></li>
-						<li><a href="@{/pline/listado}">Lista</a></li>
-						<li><a href="#">Clientes</a></li>
-						<li><a href="#">Contacto</a></li>	
-					</ul>
-				</nav>
-			</div>
-	  	</header>
+	 <div th:insert="layouts/header :: header"></div>
 	  	
 	  	<main class="main">
 	  		<div class="container">
@@ -39,18 +25,33 @@
 	<!-- *********************************************************** -->
 	<!-- ********************** MAIN ******************************  -->
 	<!-- *********************************************************** -->
+	  		<div class="btn-group justify-content-center">
+					  <a href="/newemployee" class="btn btn-outline-secondary"><i class="bi bi-plus-square mr-2"></i>Agregar nuevo</a>
+			</div>
 	  		
-	  			<h1>PRODUCT LINES</h1>
+	  			<h1>Employees</h1>
 	  			
 				 <div class="table-responsive">
 							<table class="table table-striped table-dark">
 								<tr>
-									<th> Codigo  </th>
+									<th scope="col">Id</th>
+									<th scope="col">Apellido</th>
+									<th scope="col">Nombre</th>
+									<th scope="col">Extension</th>
+									<th scope="col">Email</th>
+									<th scope="col">Oficina</th>
+									<th scope="col">Jefe</th>
+									<th scope="col">Puesto</th>
 								</tr>
 								<tr th:each="e:${employees}">
-
-									
-			              
+									<td th:text="${e.employeeNumber}"></td>
+									<td th:text="${e.lastName}"></td>
+									<td th:text="${e.firstName}"></td>									
+									<td th:text="${e.extension}"></td>
+									<td th:text="${e.email}"></td>
+									<td th:text="${e.officeCode.officeCode}"></td>															
+									<td th:text="${e.reportsTo}"></td>									
+									<td th:text="${e.jobTitle}"></td>																			              
 								</tr>
 							</table>
 					</div>
@@ -62,9 +63,7 @@
 	<!-- ********************** FOOTER *****************************  -->
 	<!-- ************************************************************ -->
 	  	
-	  	<footer class= "footer">
-	  	<h1>PROGRAMACION VISUAL 2021 TEAM 7 </h1>
-	  	</footer>
+	  	 <div th:insert="layouts/footer :: footer"></div>
 	  
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

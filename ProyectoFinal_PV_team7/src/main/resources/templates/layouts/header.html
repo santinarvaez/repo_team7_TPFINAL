@@ -12,24 +12,44 @@
 	
 <body>
 
-	  		<header class="header">
-			<div class="container logo-nav-container">
-				<a href="#" class="logo">TEAM 7</a>
-				<span class="menu-icon">Ver menú</span>
-				<nav class="navigation">
-					<ul>
-							<li><a th:href="@{/index}">Inicio</a></li>
-							<li><a href="@{/newCustomer}">Customer</a></li>
-							<li><a href="@{/pline/listado}">Lista</a></li>
-							<li><a href="#">Clientes</a></li>
-							<li><a href="#">Contacto</a></li>	
-					</ul>
-					</nav>
-				</div>
-		  	</header>
+			<img alt="" src="img/headerimg/fondo.jpg">
+			
+	  		  <header>
+			    <input type="checkbox" id="btn-menu" />
+			    <label for="btn-menu"><i class="fa fa-bars"></i></label>
+			   <div class="logo col-sm-8" >
+			     <a href="index">MUSCLE CARS</a>
+			   </div>
+			  
+			    
+			    <nav class="menu">
+			      <ul>
+			        <li><a href="index">Inicio</a></li>
+			        <li class="submenu"><a href="#">Categorias <i class="fa fa-caret-down"></i></a>
+			          <ul>
+			            <li><a href="plist">Products</a></li>
+			            <li><a href="plinelist">Product Lines</a></li>
+			            <li><a href="orderlist">Orders</a></li>
+			            <li><a href="orderdslist">Order details</a></li>
+			          </ul>
+			        </li>
+			        <li class="submenu"><a href="#">Nosotros<i class="fa fa-caret-down"></i></a>
+			          <ul>
+			            <li><a href="employeelist">Employees</a></li>
+			            <li><a href="oficcelist">Oficces</a></li>		   
+			          </ul>
+			        </li>
+			         <li class="submenu"><a href="#">Customers<i class="fa fa-caret-down"></i></a>
+			          <ul>
+			            <li><a href="paymentlist">Payments</a></li>		   
+			          </ul>
+			        </li>
+			      </ul>
+			    </nav>
+			  </header>
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="/script.js"></script>					
+ <script src="script.js"></script>				
  <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
  <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>	
