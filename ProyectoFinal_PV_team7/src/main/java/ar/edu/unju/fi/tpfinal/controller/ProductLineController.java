@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
 import org.apache.commons.logging.Log;
@@ -57,7 +58,11 @@ public class ProductLineController {
 		
 		if(resultadoValidacion.hasErrors()==true){
 			modelView = new ModelAndView("newproductline");
-			List <ProductLine> productLines = productLineService.getAllProductLines();
+			List<ProductLine> productLines = new ArrayList<ProductLine>();
+			for(ProductLine p: productLineService.getAllProductLines()) {
+				if(p.isEstado()==true)
+					productLines.add(p);
+			}
 			modelView.addObject("productlines",productLines);
 			return modelView;
 			
@@ -95,19 +100,31 @@ public class ProductLineController {
 				
 			modelView = new ModelAndView("productlines");
 			productLineService.addProductLine(productLine);
-			modelView.addObject("productLines",productLineService.getAllProductLines());
+			List<ProductLine> productLines = new ArrayList<ProductLine>();
+			for(ProductLine p: productLineService.getAllProductLines()) {
+				if(p.isEstado()==true)
+					productLines.add(p);
+			}
+			modelView.addObject("productLines",productLines);
 			LOGGER.info("TAMAÑO DE LA IMAGEN: "+imagen.getSize());
 			return modelView;
 
 		
 	}
 
+
+	
 	@GetMapping("/plinelist")
-	public ModelAndView getListadoPage() {
-		ModelAndView model = new ModelAndView("productLines");
-		model.addObject("productLines", productLineService.getAllProductLines());
-		return model;
+	public String getListadoFiltroPage(Model model) {
+		List<ProductLine> productLines = new ArrayList<ProductLine>();
+		for(ProductLine p: productLineService.getAllProductLines()) {
+			if(p.isEstado()==true)
+				productLines.add(p);
+		}
+		model.addAttribute("productLines",productLines);
+		return "productlines";	
 	}
+	
 	
 	@GetMapping("/plinedit/{id}")
 	public String getProductLineEditPage (@PathVariable(name="id") String id, Model model) {
@@ -118,20 +135,28 @@ public class ProductLineController {
 		return "newproductline";
 	}
 	
-
-	/*@GetMapping("/plinedit/{id}")
-	public ModelAndView getEditarProductLinePage(@PathVariable(value="id")String id) {
-		ModelAndView model = new ModelAndView("newproductline");
-		Optional <ProductLine> productLines = productLineService.getProductLineForId(id);
-		model.addObject("productLines", productLines);
-		return model;
-	}*/
+	@GetMapping("/rmpline/{id}")
+	public String eliminarProductLine(Model model, @PathVariable(value ="id") String id) {
+		try {
+			productLineService.eliminar(id);
+		}catch(Exception e) {
+				model.addAttribute("listErrorMessage",e.getMessage());
+		}
+		return "redirect:/plinelist";
+	}
 	
-	/*@PutMapping("plines/{id}")
-	public void disableProductLine(@PathVariable String id) {
-		productLineService.softDeleteProductLine(id);
-		productService.softDeleteProduct(id);
-	}*/
+	
+	@GetMapping("/plinelist2")//NO FUNCIONA *****BUGS*****
+	public ModelAndView getListadoPage() throws Exception {
+		ModelAndView model = new ModelAndView("productLines");
+		try {
+		model.addObject("productLines", productLineService.listarProductLines(true));
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return model;
+	}
+
 	
 
 }

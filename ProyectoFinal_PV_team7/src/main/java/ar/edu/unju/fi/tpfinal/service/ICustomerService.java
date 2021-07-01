@@ -9,5 +9,6 @@ public interface ICustomerService {
 	public Customer getCustomer();
 	public List<Customer> getAllCustomers();
 	public Customer findCustomer(Long id);
+	public void eliminar(Long id);
 
 }

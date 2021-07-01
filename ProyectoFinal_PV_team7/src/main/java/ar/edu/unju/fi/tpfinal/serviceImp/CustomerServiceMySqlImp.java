@@ -41,4 +41,13 @@ public class CustomerServiceMySqlImp implements ICustomerService {
 		return customerRepository.findById(id).orElse(null);
 	}
 
+	@Override
+	public void eliminar(Long id) {
+		Customer customer = findCustomer(id);
+		customer.setEstado(false);
+		customerRepository.save(customer);
+	}
+	
+	
+
 }

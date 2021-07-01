@@ -37,8 +37,8 @@ public class ProductLine {
 	private List<Product> productos = new ArrayList<Product>();
 	
 	@Column
-	@NotNull(message="Debe seleccionar un estado para el Usuario")
-	private boolean estado;
+	@NotNull
+	private boolean estado=true;
 	
 	//CONSTRUCTORES
 	
@@ -103,9 +103,14 @@ public class ProductLine {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 	
-	
-	
-	
-	
+			
 }

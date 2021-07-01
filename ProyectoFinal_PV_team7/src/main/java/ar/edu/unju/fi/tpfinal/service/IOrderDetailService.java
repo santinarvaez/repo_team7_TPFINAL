@@ -11,6 +11,6 @@ public interface IOrderDetailService {
 	public OrderDetail getOrderDetail();
 	public List<OrderDetail> getAllOrderDetails();
 	public OrderDetail findOrderDetail(Order orderNumber, Product productCode);
-	
+	public void eliminar(Order orderNumber,Product productCode);//"SOFT DELETE"
 	
 }

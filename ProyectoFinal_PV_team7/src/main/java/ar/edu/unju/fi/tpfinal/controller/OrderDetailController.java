@@ -8,9 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.unju.fi.tpfinal.model.Order;
 import ar.edu.unju.fi.tpfinal.model.OrderDetail;
+import ar.edu.unju.fi.tpfinal.model.Product;
 import ar.edu.unju.fi.tpfinal.service.IOrderDetailService;
 import ar.edu.unju.fi.tpfinal.service.IOrderService;
 import ar.edu.unju.fi.tpfinal.service.IProductService;
@@ -22,7 +26,6 @@ public class OrderDetailController {
 	@Qualifier("orderDetailMySql")
 	private IOrderDetailService orderDetailService;
 	
-
 	@Autowired
 	@Qualifier("productMySql")
 	private IProductService productService;
@@ -66,6 +69,19 @@ public class OrderDetailController {
 		model.addObject("orderDetails", orderDetailService.getAllOrderDetails());
 		return model;
 	}
+	
+	
+	
+/*	@GetMapping("/rmorderds/{id}-{id2}")//bug
+	public String eliminarOrderDs(Model model, @PathVariable(value ="id")Product  id,@PathVariable(value="id2")Order ornumber) {
+		try {
+			   orderDetailService.eliminar(ornumber, id);
+		}catch(Exception e) {
+				model.addAttribute("listErrorMessage",e.getMessage());
+		}
+		return "redirect:/orderdslist";
+	}
+*/
 	
 	/*@GetMapping("/plinedit/{id}")
 	public String getProductLineEditPage (@PathVariable(name="id") String id, Model model) {

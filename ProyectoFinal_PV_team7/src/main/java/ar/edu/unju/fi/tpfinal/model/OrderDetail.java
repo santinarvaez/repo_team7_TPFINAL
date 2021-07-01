@@ -33,20 +33,25 @@ public class OrderDetail implements Serializable {
 	@Column(name = "ors_lNumber")
 	private int orderLineNumber;
 	
+	@Column(name = "ors_state")
+	private Boolean estado = true;
+	
 	//CONSTRUCTORES
 	
 	 public OrderDetail() {
 	}
 	 
-	
+	 
+
 	public OrderDetail(OrderDetailId id,
 			@NotNull(message = "Ingrese una cantidad mayor a 0") @Min(0) int quantityOrdered, @NotNull float priceEach,
-			@NotNull int orderLineNumber) {
+			@NotNull int orderLineNumber, Boolean estado) {
 		super();
 		this.id = id;
 		this.quantityOrdered = quantityOrdered;
 		this.priceEach = priceEach;
 		this.orderLineNumber = orderLineNumber;
+		this.estado = estado;
 	}
 
 
@@ -87,8 +92,13 @@ public class OrderDetail implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
 
-	
+	public Boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+			
 }

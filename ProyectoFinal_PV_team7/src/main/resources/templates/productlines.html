@@ -27,8 +27,9 @@
 	<!-- *********************************************************** -->
 	
 	  		<div class="btn-group justify-content-center">
-					  <a href="/plinenew" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Agregar nuevo</a>
+					  <a href="/newpline" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Agregar nuevo</a>
 			</div>
+			
 			
 	  			<h1>Product Lines</h1>
 	  			
@@ -39,6 +40,7 @@
 									<th> Description  </th>
 									<th> HTML description  </th>
 									<th> Image </th>
+									<th> Estado </th>
 									<th> Acciones</th>
 								</tr>
 								<tr th:each="p:${productLines}">
@@ -46,14 +48,14 @@
 									<td th:text="${p.textDescription}"></td>
 									<td th:text="${p.htmlDescription}"></td>
 									<td><img class="img-responsive mx-auto d-block" th:alt="${p.imagen}" th:src="@{'/img/' + ${p.imagen}}" style="max-width: 63%"></td>
-									<!-- <td><a class="editar" th:href="@{/plinedit/}+${p.id}"></a></td> -->
+									<td th:text="${p.estado}"></td>
 									<td><a class="btn btn-warning" th:href="@{/plinedit/}+${p.id}">Editar</a></td>
+									<td><a class="btn btn-danger" th:href="@{/rmpline/}+${p.id}">Eliminar</a></td>
 								</tr>
 							</table>
-					</div>
-	  			
-	  		</div>
-	  	</main>
+						</div>
+		  		</div>
+		  	</main>
 	  	
 	<!-- ************************************************************ -->
 	<!-- ********************** FOOTER *****************************  -->

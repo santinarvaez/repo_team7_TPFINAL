@@ -42,4 +42,15 @@ public class OrderDetailServiceMySqlImp implements IOrderDetailService {
 		return orderDetailRepository.findById(new OrderDetailId(productCode,orderNumber)).orElse(null);
 	}
 
+	@Override
+	public void eliminar(Order orderNumber, Product productCode) {  
+			OrderDetail orderDetail = findOrderDetail(orderNumber, productCode);
+			orderDetail.setEstado(false);
+			orderDetailRepository.save(orderDetail);
+	}	
+	
+	
 }
+	
+
+
