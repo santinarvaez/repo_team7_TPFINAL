@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Index Classic Model</title>
+		<title>NEW PRODUCT LINE</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
@@ -33,19 +33,22 @@
 					  <div class="form-group">
 					    <label for="id">Id</label>
 					    <input type="text" class="form-control" id="id"  th:field="*{id}" placeholder="Enter id">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="textdesc">Description</label>
 					    <input type="text" class="form-control" id="textdesc" th:field="*{textDescription}" placeholder="text description">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('textDescription')}" th:errors="*{textDescription}"></div>
 					  </div>
 					  <div class="form-group">
-					   <label for="textdesc">HTML Description</label>
+					    <label for="textdesc">HTML Description</label>
 					    <input type="text" class="form-control" id="htmldesc" th:field="*{htmlDescription}" placeholder="html description">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('htmlDescription')}" th:errors="*{htmlDescription}"></div>
 					  </div>
 					  <div class="form-group">
-					   <label for="img">Imagen</label>
+					    <label for="img">Imagen</label>
 					    <input type="file" name="file" class="form-control" id="img" width="48" height="48">
-					  </div>
+					    </div>
 					  
 					  <button type="submit" class="btn btn-primary">Submit</button>
 					  

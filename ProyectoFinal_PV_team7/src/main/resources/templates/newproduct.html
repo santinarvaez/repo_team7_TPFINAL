@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Index Classic Model</title>
+		<title>NEW PRODUCT</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
@@ -34,34 +34,42 @@
 					  <div class="form-group">
 					    <label for="code">Código del producto</label>
 					    <input type="text" class="form-control" id="code" aria-describedby="idHelp" th:field="*{productCode}" placeholder="Enter code">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('productCode')}" th:errors="*{productCode}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="nombre">Nombre del producto</label>
 					    <input type="text" class="form-control" id="nombre" th:field="*{productName}" placeholder="name">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"></div>
 					  </div>
 					  <div class="form-group">
-					   <label for="esc">Escala del producto</label>
+					    <label for="esc">Escala del producto</label>
 					    <input type="text" class="form-control" id="esc" th:field="*{productScale}" placeholder="escale">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('productScale')}" th:errors="*{productScale}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="pvend">Vendedor del producto</label>
 					    <input type="text" class="form-control" id="pvend" th:field="*{productVend}" placeholder="bussines">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('productVend')}" th:errors="*{productVend}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="desc">Descripcion</label>
 					    <input type="text" class="form-control" id="desc" th:field="*{description}" placeholder="description">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="stock">Stock</label>
 					    <input type="number" class="form-control" id="stock" th:field="*{stock}" placeholder="stock">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="buyPrice">Precio de venta</label>
 					    <input type="number" class="form-control" id="buyPrice" th:field="*{buyPrice}" step="any" placeholder="stock">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('buyPrice')}" th:errors="*{buyPrice}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="MSRP">MSRP</label>
 					    <input type="number" class="form-control" id="MSRP" th:field="*{MSRP}" step="any" placeholder="stock">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('MSRP')}" th:errors="*{MSRP}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="productLine">Linea del producto</label>

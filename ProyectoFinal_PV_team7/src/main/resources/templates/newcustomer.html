@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Index Classic Model</title>
+		<title>NEW COSTUMER</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
@@ -27,57 +27,69 @@
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>NEW PRODUCT</h1>
+	  			<h1>NEW COSTUMER</h1>
 	  			
 			  		<form th:action="@{/addcustomer}" th:object="${customer}" th:method="post">
 			  		
 					  <div class="form-group">
 					    <label for="customerNumber">N del cliente</label>
-					    <input type="number" class="form-control" id="customerName" aria-describedby="customerName" th:field="*{customerNumber}" placeholder="Enter customer Number">
+					    <input type="number" class="form-control" id="customerNumber" aria-describedby="customerNumbere" th:field="*{customerNumber}" placeholder="Enter customer Number">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="customerName">Nombre empresa</label>
 					    <input type="text" class="form-control" id="customerName" aria-describedby="customerName" th:field="*{customerName}" placeholder="Enter customer Number">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="customerFirstName">Nombre del cliente</label>
 					    <input type="text" class="form-control" id="customerFirstName" aria-describedby="customerFirstName" th:field="*{customerFirstName}" placeholder="Enter customer first name ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerFirstName')}" th:errors="*{customerFirstName}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="customerFirstName">Apellido del cliente</label>
-					    <input type="text" class="form-control" id="customerLastName" aria-describedby="customerFirstName" th:field="*{customerLastName}" placeholder="Enter customer last name ">
+					    <input type="text" class="form-control" id="customerLastName" aria-describedby="customerLastName" th:field="*{customerLastName}" placeholder="Enter customer last name ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerLastName')}" th:errors="*{customerLastName}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="phone">Telefono-cliente</label>
 					    <input type="text" class="form-control" id="phone" aria-describedby="phone" th:field="*{phone}" placeholder="Enter customer phone ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="address1">Direccion</label>
 					    <input type="text" class="form-control" id="address1" aria-describedby="address1" th:field="*{address1}" placeholder="Enter customer address ">
+					   <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address1')}" th:errors="*{address1}"></div>
 					  </div>
 					 <div class="form-group">
 					    <label for="address2">Direccion2</label>
 					    <input type="text" class="form-control" id="address2" aria-describedby="address2" th:field="*{address2}" placeholder="Enter customer address 2 ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address2')}" th:errors="*{address2}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="city">Ciudad</label>
 					    <input type="text" class="form-control" id="city" aria-describedby="city" th:field="*{city}" placeholder="Enter customer city ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="state">Telefono</label>
 					    <input type="text" class="form-control" id="state" aria-describedby="state" th:field="*{state}" placeholder="Enter state ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></div>
 					  </div>
 					   <div class="form-group">
 					    <label for="postalCode">Codigo Postal</label>
 					    <input type="text" class="form-control" id="postalCode" aria-describedby="postalCode" th:field="*{postalCode}" placeholder="Enter state ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"></div>
 					  </div>
 					   <div class="form-group">
 					    <label for="country">País</label>
 					    <input type="text" class="form-control" id="country" aria-describedby="country" th:field="*{country}" placeholder="Enter country ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
 					  </div>
 					   <div class="form-group">
 					    <label for="creditLimit">Límite de Crédito</label>
 					    <input type="number" class="form-control" id="creditLimit" aria-describedby="creditLimit" th:field="*{creditLimit}" step="any" placeholder="Enter credit Limit ">
+					    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('creditLimit')}" th:errors="*{creditLimit}"></div>
 					  </div>
 					   <div class="form-group">
 					   <label for="salesRepEmployeeNumber">N de Empleado</label>
