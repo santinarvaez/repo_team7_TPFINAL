@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Index Classic Model</title>
+		<title>NEW ORDER</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"> 
@@ -26,29 +26,34 @@
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>NEW PRODUCT</h1>
+	  			<h1>NEW ORDER</h1>
 	  			
 			  		<form th:action="@{/addorder}" th:object="${order}" th:method="post">
 			  		
 					  <div class="form-group">
 					    <label for="ordNumber">Numero de Orden</label>
-					    <input type="number" class="form-control" id="ordNumber" aria-describedby="idHelp" th:field="*{orderNumber}" placeholder="Enter order Number">
+					    <input type="number" class="form-control" id="orderNumber" aria-describedby="idHelp" th:field="*{orderNumber}" placeholder="Enter order Number">
+					     <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></div>
 					  </div>
 					  <div class="form-group">
 					    <label for="orderDate">Fecha de la Orden</label>
-					    <input type="date" class="form-control" id="nombre" th:field="*{orderDate}" placeholder="date">
+					    <input type="date" class="form-control" id="orderDate" th:field="*{orderDate}" placeholder="date">
+					     <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('orderDate')}" th:errors="*{orderDate}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="requiredDate">Fecha requerida</label>
 					    <input type="date" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
+					     <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('requiredDate')}" th:errors="*{requiredDate}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="status">Estado</label>
 					    <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="status">
+					     <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
 					  </div>
 					  <div class="form-group">
 					   <label for="comments">Comentarios</label>
 					    <input type="text" class="form-control" id="comments" th:field="*{comments}" placeholder="description">
+					     <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></div>
 					  </div>
 					  
 					 <div class="form-group">
@@ -56,6 +61,7 @@
 					    <select th:field="*{customer}" id="customer" class="form-control">
 							<option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.customerName}"></option>
 						</select>
+						
 					  </div> 
 					
 
