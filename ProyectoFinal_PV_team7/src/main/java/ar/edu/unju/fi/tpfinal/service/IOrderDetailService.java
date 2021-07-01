@@ -10,7 +10,8 @@ public interface IOrderDetailService {
 	public void addOrderDetail(OrderDetail orderDetail);
 	public OrderDetail getOrderDetail();
 	public List<OrderDetail> getAllOrderDetails();
-	public OrderDetail findOrderDetail(Order orderNumber, Product productCode);
+	public OrderDetail findOrderDetail(Long id);
 	public void eliminar(Order orderNumber,Product productCode);//"SOFT DELETE"
+	public void eliminarOrderDetailByOrderId(Long id);
 	
 }

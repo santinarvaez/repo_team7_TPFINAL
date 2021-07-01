@@ -9,5 +9,5 @@ public interface IPaymentService {
 	public void addPayment(Payment payment);
 	public Payment getPayment();
 	public List<Payment> getAllPayments();
-	public Payment findPayment(Customer customer,String checkNumber);
+	public Payment findPayment(Customer customer,Long checkNumber);
 }

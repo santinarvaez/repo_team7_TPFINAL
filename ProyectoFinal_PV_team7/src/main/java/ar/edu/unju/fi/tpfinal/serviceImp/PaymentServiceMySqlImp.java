@@ -37,7 +37,7 @@ public class PaymentServiceMySqlImp implements IPaymentService {
 	}
 
 	@Override
-	public Payment findPayment(Customer customer, String checkNumber) {
+	public Payment findPayment(Customer customer, Long checkNumber) {
 		return paymentRepository.findById(new PaymentId(customer,checkNumber)).orElse(null);
 	}
 

@@ -25,7 +25,6 @@ public class OrderDetail implements Serializable {
 	@Column(name = "ors_quantity_ordered")
 	private int quantityOrdered;
 	
-	@NotNull
 	@Column(name = "ors_price_each")
 	private float priceEach;
 	
@@ -99,6 +98,10 @@ public class OrderDetail implements Serializable {
 
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
+	}
+
+	public Boolean getEstado() {
+		return estado;
 	}
 			
 }

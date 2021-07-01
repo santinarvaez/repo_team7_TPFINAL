@@ -38,7 +38,7 @@
 									<th> Id Orden  </th>
 									<th> Producto </th>
 									<th> Cantidad  </th>
-									<th> Precio c/u  </th>
+									<th> Precio  </th>
 									<th> N de Linea </th>
 									<th> Estado </th>
 
@@ -49,9 +49,10 @@
 									<td th:text="${o.quantityOrdered}"></td>
 									<td th:text="${o.priceEach}"></td>
 									<td th:text="${o.orderLineNumber}"></td>
-									<td th:text="${o.estado}"></td>										
+									<td th:text="${o.estado}"></td>	
+																		
 								<!--<td><a class="btn btn-warning" th:href="@{/plinedit/}+${o.id}">Editar</a></td> -->
-								<!--<td><a class="btn btn-danger" th:href="@{/rmorderds/}+${o.id.orderNumber.orderNumber}+'-'+${p.id.productCode}">Eliminar</a></td>-->		       
+								<td><a class="btn btn-danger" th:href="@{/rmorderds/}+${o.id.orderNumber.orderNumber}">Eliminar</a></td>		       
 								</tr>
 							</table>
 					</div>

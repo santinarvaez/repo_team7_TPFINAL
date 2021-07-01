@@ -37,7 +37,6 @@ public class OrderDetailServiceMySqlImp implements IOrderDetailService {
 		return orderDetails;
 	}
 
-	@Override
 	public OrderDetail findOrderDetail(Order orderNumber, Product productCode) {
 		return orderDetailRepository.findById(new OrderDetailId(productCode,orderNumber)).orElse(null);
 	}
@@ -47,6 +46,23 @@ public class OrderDetailServiceMySqlImp implements IOrderDetailService {
 			OrderDetail orderDetail = findOrderDetail(orderNumber, productCode);
 			orderDetail.setEstado(false);
 			orderDetailRepository.save(orderDetail);
+	}
+
+	@Override
+	public void eliminarOrderDetailByOrderId(Long id) {
+		List<OrderDetail> orderDetails = (List<OrderDetail>) orderDetailRepository.findAll();
+		for (int i=0;i<orderDetails.size();i++) {
+			OrderDetail registro = orderDetails.get(i);
+			if (registro.getId().getOrderNumber().getOrderNumber().compareTo(id) == 0) {
+					registro.setEstado(false);
+			}		
+		}
+	}
+
+	@Override
+	public OrderDetail findOrderDetail(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	
 	

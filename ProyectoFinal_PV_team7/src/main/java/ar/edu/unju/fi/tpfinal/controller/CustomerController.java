@@ -93,9 +93,10 @@ public class CustomerController {
 	@GetMapping("/custoedit/{id}")
 	public String getCustoEditPage(@PathVariable(name="id") Long id, Model model) {
 		Customer customer = customerService.findCustomer(id);
+		model.addAttribute("employees",employeeService.getAllEmployees());
 		model.addAttribute("customer",customer);
 		
-		return"redirect:/customerlist";
+		return"newcustomer";
 	}
 	
 	@GetMapping("/rmcustomer/{id}")

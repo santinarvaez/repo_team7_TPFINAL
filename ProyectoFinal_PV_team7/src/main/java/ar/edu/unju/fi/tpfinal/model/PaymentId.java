@@ -26,7 +26,7 @@ public class PaymentId implements Serializable{
 	
 	@NotNull
 	@Column(name="check_number")
-	private String checkNumber;
+	private Long checkNumber;
 	
 	//CONSTRUCTORES
 	
@@ -35,10 +35,10 @@ public class PaymentId implements Serializable{
 	}
 	
 
-	public PaymentId(@NotNull Customer customer, @NotNull String checkNumber) {
+	public PaymentId(@NotNull Customer customer, @NotNull Long checkNumber2) {
 		super();
 		this.customer = customer;
-		this.checkNumber = checkNumber;
+		this.checkNumber = checkNumber2;
 	}
 
 	//GETTERS AND SETTERS
@@ -50,11 +50,11 @@ public class PaymentId implements Serializable{
 		this.customer = customer;
 	}
 
-	public String getCheckNumber() {
+	public Long getCheckNumber() {
 		return checkNumber;
 	}
 
-	public void setCheckNumber(String checkNumber) {
+	public void setCheckNumber(Long checkNumber) {
 		this.checkNumber = checkNumber;
 	}
 

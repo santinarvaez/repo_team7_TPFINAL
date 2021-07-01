@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tpfinal.serviceImp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,12 @@ public class OrderServiceMySqlImp implements IOrderService {
 	@Override
 	public Order findOrder(Long id) {
 		return orderRepository.findById(id).orElse(null);
+	}
+	
+	@Override
+	public Optional<Order> orderForId(Long id) {
+		Optional<Order> order = orderRepository.findById(id);
+		return order;
 	}
 
 }

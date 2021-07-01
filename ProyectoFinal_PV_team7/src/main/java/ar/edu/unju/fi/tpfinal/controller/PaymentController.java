@@ -1,52 +1,64 @@
 package ar.edu.unju.fi.tpfinal.controller;
 
-import javax.validation.Valid;
-
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.unju.fi.tpfinal.model.OrderDetail;
 import ar.edu.unju.fi.tpfinal.model.Payment;
-import ar.edu.unju.fi.tpfinal.service.ICustomerService;
+import ar.edu.unju.fi.tpfinal.service.IOrderDetailService;
 import ar.edu.unju.fi.tpfinal.service.IPaymentService;
 
 @Controller
 public class PaymentController {
+	
+	private static final Log LOGGER = LogFactory.getLog(ProductLineController.class);
+
+	
+	@Autowired
+	Payment payment;
 
 	@Autowired
 	@Qualifier("paymentMySql")
 	private IPaymentService paymentService;
 	
 	@Autowired
-	@Qualifier("customerMySql")
-	private ICustomerService customerService;
+	private IOrderDetailService orderDetailService;
 	
 	@GetMapping("/newpayment")
 	public String getNewPaymentPage(Model model) {
-		model.addAttribute("payment",paymentService.getPayment());
-		model.addAttribute("customers",customerService.getAllCustomers());
+		model.addAttribute(payment);
+		OrderDetail orderds = orderDetailService.getAllOrderDetails().get(orderDetailService.getAllOrderDetails().size()-1);
+		model.addAttribute("amount",orderds.getPriceEach()*orderds.getQuantityOrdered());
+		model.addAttribute("customer",orderds.getId().getOrderNumber().getCustomer().getCustomerNumber());
+		LOGGER.info("AMOUNT->>>"+orderds.getOrderLineNumber());
+		LOGGER.info("AMOUNT->>>"+orderds.getPriceEach()*orderds.getQuantityOrdered());
 		return "newpayment";
 	}
 	
 	@PostMapping("/addpayment")
-	public ModelAndView guardarPagoPage(@Valid @ModelAttribute("payment")Payment payment,BindingResult resultadoValidacion) {
-		ModelAndView modelView;
-		
-		if(resultadoValidacion.hasErrors()==true) {
-			modelView = new ModelAndView("newpayment");
-			return modelView;
+	public String guardarPagoPage(@ModelAttribute("payment")Payment payment,Model model) {
+		OrderDetail orderds = orderDetailService.getAllOrderDetails().get(orderDetailService.getAllOrderDetails().size()-1);
+		payment.setAmount((double) (orderds.getPriceEach()*orderds.getQuantityOrdered()));
+		/***
+		 * Asignar n° de cheque
+		 */
+		if(paymentService.getAllPayments().isEmpty()) {
+			payment.getId().setCheckNumber((long) 1);
 		}else {
-			modelView = new ModelAndView("payments");
-			paymentService.addPayment(payment);
-			modelView.addObject("payments",paymentService.getAllPayments());
-			return modelView;
+			payment.getId().setCheckNumber(paymentService.getAllPayments().get(paymentService.getAllPayments().size()-1).getId().getCheckNumber()+1);
 		}
 		
+		paymentService.addPayment(payment);
+		model.addAttribute("payments",paymentService.getAllPayments());
+		return "payments";
 	}
 	
 	@GetMapping("/paymentlist")

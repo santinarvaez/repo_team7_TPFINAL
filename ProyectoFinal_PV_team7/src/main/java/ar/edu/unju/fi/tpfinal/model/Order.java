@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +22,7 @@ import org.springframework.stereotype.Component;
 public class Order {
 
 	@Id
-	@NotNull(message = "Ingrese id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "or_number")
 	private Long orderNumber;
 	
@@ -33,6 +35,10 @@ public class Order {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "or_req_date")
 	private LocalDate requiredDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "or_shipped_date")
+	private LocalDate shippedDate;
 	
 	@NotNull(message = "La orden debe tener un estado")
 	@Column(name = "or_status")
@@ -54,22 +60,23 @@ public class Order {
 	}
 	
 
+	//GETTERS & SETTERS
+
 	public Order(@NotNull(message = "Ingrese id") Long orderNumber,
 			@NotNull(message = "Ingrese una fecha válida") LocalDate orderDate,
-			@NotNull(message = "Ingrese una fecha válida") LocalDate requiredDate,
+			@NotNull(message = "Ingrese una fecha válida") LocalDate requiredDate, LocalDate shippedDate,
 			@NotNull(message = "La orden debe tener un estado") String status, String comments,
 			@NotNull(message = "Debe ingresar un cliente existente") Customer customer) {
 		super();
 		this.orderNumber = orderNumber;
 		this.orderDate = orderDate;
 		this.requiredDate = requiredDate;
+		this.shippedDate = shippedDate;
 		this.status = status;
 		this.comments = comments;
 		this.customer = customer;
 	}
 
-
-	//GETTERS & SETTERS
 
 	public Long getOrderNumber() {
 		return orderNumber;
@@ -119,6 +126,16 @@ public class Order {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+
+	public LocalDate getShippedDate() {
+		return shippedDate;
+	}
+
+
+	public void setShippedDate(LocalDate shippedDate) {
+		this.shippedDate = shippedDate;
 	}
 	
 	

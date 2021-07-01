@@ -18,7 +18,7 @@ public class Payment {
 		
 	@EmbeddedId
 	private PaymentId id;
-	
+
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "pay_payDate")

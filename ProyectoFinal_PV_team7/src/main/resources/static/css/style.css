@@ -1,5 +1,5 @@
 body{
-	font-family: sans-serif;
+	font-family: Oswald;
 	color: #333;
 	font-size: 1.3rem;
 	line-height: 1.6em;
@@ -99,7 +99,7 @@ header label {
   color: #FFF;
   text-decoration: none;
   line-height: 32px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: Oswald;
   font-weight: 700;
 }
 

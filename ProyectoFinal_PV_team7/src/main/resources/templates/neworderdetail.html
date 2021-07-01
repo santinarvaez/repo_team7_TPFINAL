@@ -28,45 +28,81 @@
 	  		
 	  			<h1>NEW ORDER DETAIL</h1>
 	  			
-			  		<form th:action="@{/addorderds}" th:object="${orderDetail}" th:method="post">
+			  		<form th:action="@{/addorderds}"  th:method="post">
 			  		
 			  		  <!-- CLASES FORANEAS ORDERDS -->
 			  		
-					  <div class="form-group">
-					    <label for="orderId">Seleccione el id de la orden</label>
-					    <select th:field="*{id.orderNumber.orderNumber}" id="ordenId" class="form-control">
-							<option th:each="o : ${orders}" th:value="${o.orderNumber}" th:text="${o.orderNumber}"></option>
-						</select>
-					  </div>
-					  <div class="form-group">
-					    <label for="producto">Seleccione el producto de la orden</label>
-					    <select th:field="*{id.productCode.productCode}" id="producto" class="form-control">
-							<option th:each="p : ${products}" th:value="${p.productCode}" th:text="${p.productName}"></option>
-						</select>
-					  </div>
-					  
-					  <!-- CLASES INHERENTES A ORDERDS -->
-					  
-					<div class="form-group col-md-8">
-						<label for="quantity" class="col-form-label">Cantidad</label>
-						<input type="number" class="form-control" id="quantityOrdered" th:field="*{quantityOrdered}" >
-						 <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('quantityOrdered')}" th:errors="*{quantityOrdered}"></div>
+			  		
+			  		<br>
+			  		<br>
+			  		
+					  <div  class="form-group">
+					  	<h5>PRODUCTOS DISPONIBLES</h5>
+					    <ul>
+                            <li th:each="p: ${products}"> 
+                                     <input type="checkbox" th:field="*{productList.products}" th:value="${p.productCode}"> 
+                                     <label class="form-label" th:text="${p.productName}"></label> 
+                            </li>
+		                </ul>
+					</div>
+				<div class="form-row">
+				
+					<div class="col-sm-3 my-1">
+						<label for="orderDate" class="form-label">Fecha de Orden</label>
+						<input type="date" class="form-control" id="orderDate" th:field="*{order.orderDate}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('order.orderDate')}" th:errors="*{order.orderDate}"></div>
+						
 					</div>
 					
-					<div class="form-group col-md-8">
-						<label for="priceach" class="col-form-label">Precio</label>
-						<input type="number" class="form-control" id="priceEach" th:field="*{priceEach}" step="any">
-						 <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('priceEach')}" th:errors="*{priceEach}"></div>
+					<div class="col-sm-3 my-1">
+						<label for="requiredDate" class="form-label">Fecha de Llegada</label>
+						<input type="date" class="form-control" id="requiredDate" th:field="*{order.requiredDate}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('order.requiredDate')}" th:errors="*{order.requiredDate}"></div>
+						
 					</div>
 					
-					<div class="form-group col-md-8">
-						<label for="numeroLinea" class="col-form-label">Número de Línea</label>
-						<input type="number" class="form-control" id="orderLineNumber" th:field="*{orderLineNumber}">
-						 <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('orderLineNumber')}" th:errors="*{orderLineNumber}"></div>
+					<div class="col-sm-3 my-1">
+						<label for="shippedDate" class="form-label">Fecha de envio</label>
+						<input type="date" class="form-control" id="shippedDate" th:field="*{order.shippedDate}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('order.shippedDate')}" th:errors="*{order.shippedDate}"></div>
+						
+					</div>
+					
+					<div class="form-group col-md-6">
+						<label for="status" class="form-label">Estado</label>
+						<input type="text" class="form-control" id="status" th:field="*{order.status}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('order.shippedDate')}" th:errors="*{order.shippedDate}"></div>
+						
+					</div>
+					
+					<div class="form-group col-md-6">
+						<label for="comments" class="form-label">Comentario</label>
+						<input type="text" class="form-control" id="state" th:field="*{order.comments}">
+					</div>
+					
+					<div class="form-group col-md-6">
+						  <label for="customer" class="form-label">Cliente:</label>
+						    <select id="customer" th:field="*{order.customer}">
+						    	<option th:each="c: ${customers}" th:value="${c.customerNumber}" th:text="${c.customerName}" th:selected="false">
+						    </select>
+						    <!--  small class="form-text text-danger" th:if="${#fields.hasErrors('order.customerNumber')}" th:errors="*{}"></small-->
+					</div>
+					
+					<div class="mb-3">
+						  <label for="employee" class="form-label">Empleado a cargo:</label>
+						    <select id="employee" th:field="*{order.customer.salesRepEmployeeNumber}">
+						    	<option th:each="e: ${employees}" th:value="${e.employeeNumber}" th:text="${e.employeeNumber}" th:selected="false">
+						    </select>
+						    <small class="form-text text-danger" th:if="${#fields.hasErrors('order.customer.salesRepEmployeeNumber')}" th:errors="*{order.customer.salesRepEmployeeNumber}"></small>
+					</div>
+					
+					
+					<div class="col-sm-3 my-1">
+						<label for="quantityOrdered" class="form-label">Cantidad Ordenada</label>
+						<input type="number" class="form-control" id="quantityOrdered" th:field="*{orderDetail.quantityOrdered}">
 					</div>
 			
-			
-					  <button type="submit" class="btn btn-primary">Seguir comprando</button>					  
+			</div>
 					  <button type="submit" class="btn btn-success">Done</button>
 					  
 					</form>
