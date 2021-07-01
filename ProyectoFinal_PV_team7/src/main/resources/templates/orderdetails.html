@@ -26,6 +26,10 @@
 	<!-- ********************** MAIN ******************************  -->
 	<!-- *********************************************************** -->
 	  		
+	  		<div class="btn-group justify-content-center">
+					  <a href="/neworderds" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Agregar nuevo</a>
+			</div>
+	  		
 	  			<h1>Order Details</h1>
 	  			
 				 <div class="table-responsive">
@@ -36,6 +40,7 @@
 									<th> Cantidad  </th>
 									<th> Precio c/u  </th>
 									<th> N de Linea </th>
+									<th> Estado </th>
 
 								</tr>
 								<tr th:each="o:${orderDetails}">
@@ -43,7 +48,10 @@
 									<td th:text="${o.id.productCode.productName}"></td>
 									<td th:text="${o.quantityOrdered}"></td>
 									<td th:text="${o.priceEach}"></td>
-									<td th:text="${o.orderLineNumber}"></td>			       
+									<td th:text="${o.orderLineNumber}"></td>
+									<td th:text="${o.estado}"></td>										
+								<!--<td><a class="btn btn-warning" th:href="@{/plinedit/}+${o.id}">Editar</a></td> -->
+								<!--<td><a class="btn btn-danger" th:href="@{/rmorderds/}+${o.id.orderNumber.orderNumber}+'-'+${p.id.productCode}">Eliminar</a></td>-->		       
 								</tr>
 							</table>
 					</div>

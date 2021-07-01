@@ -71,19 +71,26 @@ public class Customer {
 	@Column(name = "cu_creditLimit")
 	private Double creditLimit;
 	
+	
+	@Column(name = "cu_estado")
+	@NotNull
+	private Boolean estado = true;
+	
 	//CONSTRUCTORES
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+
 	public Customer(Long customerNumber, @NotEmpty(message = "Ingrese un nombre de empresa") String customerName,
 			@NotEmpty(message = "Ingrese un apellido") String customerLastName,
 			@NotEmpty(message = "Ingrese un nombre") String customerFirstName, @NotNull String phone,
 			@NotEmpty(message = "Ingrese una direccion") String address1, String address2,
 			@NotEmpty(message = "Ingrese una ciudad válida") String city, String state, String postalCode,
 			@NotEmpty(message = "Ingrese un país válida") String country, Employee salesRepEmployeeNumber,
-			Double creditLimit) {
+			Double creditLimit, Boolean estado) {
 		super();
 		this.customerNumber = customerNumber;
 		this.customerName = customerName;
@@ -98,7 +105,10 @@ public class Customer {
 		this.country = country;
 		this.salesRepEmployeeNumber = salesRepEmployeeNumber;
 		this.creditLimit = creditLimit;
+		this.estado = estado;
 	}
+
+
 
 	//GETTERS AND SETTERS
 
@@ -205,7 +215,15 @@ public class Customer {
 	public void setSalesRepEmployeeNumber(Employee salesRepEmployeeNumber) {
 		this.salesRepEmployeeNumber = salesRepEmployeeNumber;
 	}
-	
+
+
+	public Boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
 	
 	
 	

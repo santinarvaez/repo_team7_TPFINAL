@@ -26,7 +26,7 @@
 	<!-- ********************** MAIN *****************************  -->
 	<!-- *********************************************************** -->
 	  		
-	  			<h1>NEW PRODUCT</h1>
+	  			<h1>NEW ORDER</h1>
 	  			
 			  		<form th:action="@{/addorder}" th:object="${order}" th:method="post">
 			  		
@@ -40,7 +40,7 @@
 					  </div>
 					  <div class="form-group">
 					   <label for="requiredDate">Fecha requerida</label>
-					    <input type="text" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
+					    <input type="date" class="form-control" id="requiredDate" th:field="*{requiredDate}" placeholder="required Date">
 					  </div>
 					  <div class="form-group">
 					   <label for="status">Estado</label>
@@ -51,12 +51,12 @@
 					    <input type="text" class="form-control" id="comments" th:field="*{comments}" placeholder="description">
 					  </div>
 					  
-					  <!-- <div class="form-group">
+					  <div class="form-group">
 					    <label for="customer">Seleccione cliente</label>
 					    <select th:field="*{customer}" id="customer" class="form-control">
-							<option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.customerName}"></option>
+							<option th:each="c : ${customers}" th:value="${c.customerNumber}" th:text="${c.customerNumber}"></option>
 						</select>
-					  </div>  -->
+					  </div>  
 					
 
 			

@@ -11,5 +11,7 @@ public interface IProductLineService {
 	public Optional <ProductLine> getProductLineForId(String id);//No testeado
 	public void eliminarProductLine(String id);	//No testeado
 	public ProductLine findProductLine(String id);
-
+	public void eliminar (String id);
+	public Iterable<ProductLine> listarProductLines(boolean estado) throws Exception;//bug
+	public List<ProductLine> filtrarProductLines(boolean estado) throws Exception;//bug
 }

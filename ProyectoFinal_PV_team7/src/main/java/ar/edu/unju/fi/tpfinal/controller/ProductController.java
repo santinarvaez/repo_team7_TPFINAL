@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.tpfinal.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.tpfinal.model.Product;
+import ar.edu.unju.fi.tpfinal.model.ProductLine;
 import ar.edu.unju.fi.tpfinal.service.IProductLineService;
 import ar.edu.unju.fi.tpfinal.service.IProductService;
 
@@ -36,7 +38,12 @@ public class ProductController {
 	@GetMapping("/pnew")
 	public String getNewProductLinePage(Model model) {
 	model.addAttribute("product",productService.getProduct());
-	model.addAttribute("productLine",productLineService.getAllProductLines());
+	List<ProductLine> productLines = new ArrayList<ProductLine>();
+	for(ProductLine p: productLineService.getAllProductLines()) {
+		if(p.isEstado()==true)
+			productLines.add(p);
+	}
+	model.addAttribute("productLine",productLines);
 	return "newproduct";
 	}
 	
